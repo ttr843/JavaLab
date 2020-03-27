@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Javalabhomework@localhost" uuid="6b44534c-6adc-410b-9f18-b0a0f03cdec2">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/Javalabhomework</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="ArtNet@localhost" uuid="afa00906-45c5-4f41-8785-a02de63e6dd3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/ArtNet</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+for other homework used this java code
