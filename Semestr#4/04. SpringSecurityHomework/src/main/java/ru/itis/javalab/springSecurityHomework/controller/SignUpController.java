@@ -22,7 +22,8 @@ public class SignUpController {
     }
 
     @PostMapping("/signUp")
-    public void signUp(UserDto userDto) {
+    public String signUp(UserDto userDto) {
         userService.signUp(userDto);
+        return "redirect:/login";
     }
 }

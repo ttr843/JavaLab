@@ -8,7 +8,7 @@ public class UserController {
 
     @GetMapping("/profile")
     public String getProfile(Model model) {
-        model.addAttribute("kek","hello");
+        model.addAttribute("kek","hello my dear,checking freemarker model:)");
         return "profilePage";
     }
 }

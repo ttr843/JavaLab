@@ -21,12 +21,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) {
-        Optional<User> optionUser = userRepository.findByEmail(s);
+    public UserDetails loadUserByUsername(String email) {
+        Optional<User> optionUser = userRepository.findByEmail(email);
         if (optionUser.isPresent()) {
             return new UserDetailsImpl(optionUser.get());
         } else {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("USERA NET TAKOGO BRAT");
         }
     }
 }
