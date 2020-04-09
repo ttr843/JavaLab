@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <title>Пост</title>
+    <style>
+        a.profile-dropdown-toggle {
+            color: white;
+        }
+
+        .container-post {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card-post {
+            padding: 16px;
+        }
+
+        .btn-close-post {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+        }
+
+        .card-like-button-wrap {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card-like-button {
+            margin-left: 16px;
+            padding: 0;
+            width: 50px;
+            background: transparent;
+            border: 0;
+        }
+
+        .card-like-icon {
+            max-width: 32px;
+            height: auto;
+        }
+
+        .media-author {
+            padding: 16px 0;
+        }
+
+        .media-author-photo {
+            max-width: 130px;
+        }
+
+        .comment-date {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="sticky-top navbar navbar-dark navbar-expand bg-warning">
+    <a class="navbar-brand" href="news.html">ART</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="favorites.html">Избранное</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="top.html">Лучшее</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="subscriptions.html">Подписки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="add.html">Добавить</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Введите запрос..." aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
+        </form>
+        <div class="dropdown ml-4">
+            <a class="dropdown-toggle profile-dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Иван Иванов
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="profile.html">Профиль</a>
+                <a class="dropdown-item" href="edit.html">Редактировать профиль</a>
+                <a class="dropdown-item" href="login.html">Выйти</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container container-post">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card card-post">
+                <div class="media media-author">
+                    <img src="https://cdn6.f-cdn.com/contestentries/918774/22954115/586eea98be949_thumb900.jpg"  class="mr-3 img-fluid media-author-photo" alt="Пользователь">
+                    <div class="media-body">
+                        <h5 class="mt-0">Иван Иванов</h5>
+                        Россия, Республика Татарстан, г. Казань
+                    </div>
+                    <a href="news.html" class="btn-close-post">
+                        <img src="../img/close.svg" alt="Закрыть">
+                    </a>
+                </div>
+                <img src="../img/image-example.jpg" class="card-img-top" alt="Пост">
+                <div class="card-body">
+                    <p class="card-text">
+                        Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет выполнять
+                        важные задания по разработке системы обучения кадров, соответствует насущным потребностям.
+                        Задача
+                        организации, в особенности же укрепление и развитие структуры влечет за собой процесс внедрения
+                        и модернизации
+                        направлений прогрессивного развития. Идейные соображения высшего порядка, а также новая модель
+                        организационной деятельности обеспечивает широкому кругу (специалистов) участие в формировании
+                        системы обучения
+                        кадров, соответствует насущным потребностям. Повседневная практика показывает, что сложившаяся
+                        структура
+                        организации играет важную роль в формировании систем массового участия. Разнообразный и богатый
+                        опыт начало
+                        повседневной работы по формированию позиции требуют определения и уточнения новых предложений.
+                    </p>
+                </div>
+                <div class="card-like-button-wrap">
+                    <button class="card-like-button">
+                        <img src="../img/star.svg" alt="В избранное" class="card-like-icon">
+                    </button>
+                    <button class="card-like-button">
+                        <img src="../img/heart.svg" alt="Нравится" class="card-like-icon">
+                    </button>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="media">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">Иван Иванов</h6>
+                                Задача организации, в особенности же начало повседневной работы по формированию позиции
+                                требуют
+                                определения и уточнения направлений прогрессивного развития.
+                                <p class="comment-date">
+                                    <small>03.10.2019</small>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="media my-4">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">Петр Петров</h6>
+                                Повседневная практика показывает, что дальнейшее развитие различных форм деятельности
+                                позволяет
+                                оценить значение систем массового участия. Не следует, однако забывать, что сложившаяся
+                                структура организации обеспечивает широкому кругу (специалистов) участие в формировании
+                                новых
+                                предложений.
+                                <p class="comment-date">
+                                    <small>03.10.2019</small>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="media-body">
+                                <h6 class="mt-0 mb-1">Николай Николаев</h6>
+                                Не следует, однако забывать, что новая модель организационной деятельности играет важную
+                                роль в
+                                формировании позиций, занимаемых участниками в отношении поставленных задач.
+                                <p class="comment-date">
+                                    <small>03.10.2019</small>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <form>
+                        <div class="form-group">
+                            <label for="comment">Комментарий</label>
+                            <textarea class="form-control" id="comment" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning float-right">Опубликовать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

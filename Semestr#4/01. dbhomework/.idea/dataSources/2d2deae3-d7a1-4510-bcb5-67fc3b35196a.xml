@@ -21,8 +21,8 @@
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>2157577</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|57546|57548|1
-sequence|table|65734|65736|1
+      <Relations>sequence|table|65734|65736|1
+sequence|table|57546|57548|1
 </Relations>
     </database>
     <database id="5" parent="1" name="ShinglesSet">

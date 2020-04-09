@@ -6,6 +6,7 @@ import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import ru.itis.javalab.EmailHomeWork.dto.SignUpDto;
 import ru.itis.javalab.EmailHomeWork.models.User;
 import ru.itis.javalab.EmailHomeWork.repositories.UserRepository;
@@ -23,6 +24,8 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Autowired
     private EmailService emailService;
+
+
 
     @Override
     public void signUp(SignUpDto form,Template template) {

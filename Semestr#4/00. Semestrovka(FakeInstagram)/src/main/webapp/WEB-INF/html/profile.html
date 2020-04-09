@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <title>Профиль</title>
+    <style>
+        a.profile-dropdown-toggle {
+            color: white;
+        }
+
+        .user-profile-row {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .user-profile-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .user-profile-photo {
+            max-width: 300px;
+        }
+
+        .card-post {
+            padding: 16px;
+        }
+
+        .card-like-button-wrap {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card-like-button {
+            margin-left: 12px;
+            padding: 0;
+            width: 30px;
+            background: transparent;
+            border: 0;
+        }
+
+        .card-like-icon {
+            max-width: 24px;
+            height: auto;
+        }
+
+        .card-text {
+            color: black;
+            font-size: 14px;
+        }
+
+        .card a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="sticky-top navbar navbar-dark navbar-expand bg-warning">
+    <a class="navbar-brand" href="news.html">ART</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="favorites.html">Избранное</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="top.html">Лучшее</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="subscriptions.html">Подписки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="add.html">Добавить</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Введите запрос..." aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Поиск</button>
+        </form>
+        <div class="dropdown ml-4">
+            <a class="dropdown-toggle profile-dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Иван Иванов
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="profile.html">Профиль</a>
+                <a class="dropdown-item" href="edit.html">Редактировать профиль</a>
+                <a class="dropdown-item" href="login.html">Выйти</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row user-profile-row">
+        <div class="col user-profile-col">
+            <img src="https://cdn6.f-cdn.com/contestentries/918774/22954115/586eea98be949_thumb900.jpg" alt="Фотография"
+                 class="img-fluid user-profile-photo mb-3">
+            <button type="button" class="btn btn-warning">Подписаться</button>
+        </div>
+        <div class="col">
+            <h2>ПРОФИЛЬ</h2>
+            <div class="form-group">
+                <p>Имя</p>
+                <p><b>Иван</b></p>
+            </div>
+            <div class="form-group">
+                <p>Фамилия</p>
+                <p><b>Иванов</b></p>
+            </div>
+            <div class="form-group">
+                <p>Email</p>
+                <p><b>ivan.ivanov@kpfu.ru</b></p>
+            </div>
+            <div class="form-group">
+                <p>Логин</p>
+                <p><b>ivan.ivanov</b></p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card card-post">
+                <a href="post.html">
+                    <img src="../img/image-example.jpg" class="card-img-top" alt="Пост">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет
+                            выполнять
+                            важные задания по разработке системы обучения кадров, соответствует насущным потребностям.
+                            Задача
+                            организации, в особенности же укрепление и развитие структуры влечет за собой процесс
+                            внедрения
+                            и модернизации
+                            направлений прогрессивного развития. Идейные соображения высшего порядка, а также новая
+                            модель
+                            организационной деятельности обеспечивает широкому кругу (специалистов) участие в
+                            формировании
+                            системы обучения
+                            кадров, соответствует насущным потребностям. Повседневная практика показывает, что
+                            сложившаяся
+                            структура
+                            организации играет важную роль в формировании систем массового участия. Разнообразный и
+                            богатый
+                            опыт начало
+                            повседневной работы по формированию позиции требуют определения и уточнения новых
+                            предложений.
+                        </p>
+                    </div>
+                </a>
+
+                <div class="card-like-button-wrap">
+                    <button class="card-like-button">
+                        <img src="../img/star.svg" alt="В избранное" class="card-like-icon">
+                    </button>
+                    <button class="card-like-button">
+                        <img src="../img/heart.svg" alt="Нравится" class="card-like-icon">
+                    </button>
+                </div>
+                <form class="mt-4">
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Комментарий">
+                    <button type="submit" class="btn btn-warning mb-2">Опубликовать</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-post">
+                <a href="post.html">
+                    <img src="../img/image-example.jpg" class="card-img-top" alt="Пост">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет
+                            выполнять
+                            важные задания по разработке системы обучения кадров, соответствует насущным потребностям.
+                            Задача
+                            организации, в особенности же укрепление и развитие структуры влечет за собой процесс
+                            внедрения
+                            и модернизации
+                            направлений прогрессивного развития. Идейные соображения высшего порядка, а также новая
+                            модель
+                            организационной деятельности обеспечивает широкому кругу (специалистов) участие в
+                            формировании
+                            системы обучения
+                            кадров, соответствует насущным потребностям. Повседневная практика показывает, что
+                            сложившаяся
+                            структура
+                            организации играет важную роль в формировании систем массового участия. Разнообразный и
+                            богатый
+                            опыт начало
+                            повседневной работы по формированию позиции требуют определения и уточнения новых
+                            предложений.
+                        </p>
+                    </div>
+                </a>
+
+                <div class="card-like-button-wrap">
+                    <button class="card-like-button">
+                        <img src="../img/star.svg" alt="В избранное" class="card-like-icon">
+                    </button>
+                    <button class="card-like-button">
+                        <img src="../img/heart.svg" alt="Нравится" class="card-like-icon">
+                    </button>
+                </div>
+                <form class="mt-4">
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Комментарий">
+                    <button type="submit" class="btn btn-warning mb-2">Опубликовать</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-post">
+                <a href="post.html">
+                    <img src="../img/image-example.jpg" class="card-img-top" alt="Пост">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет
+                            выполнять
+                            важные задания по разработке системы обучения кадров, соответствует насущным потребностям.
+                            Задача
+                            организации, в особенности же укрепление и развитие структуры влечет за собой процесс
+                            внедрения
+                            и модернизации
+                            направлений прогрессивного развития. Идейные соображения высшего порядка, а также новая
+                            модель
+                            организационной деятельности обеспечивает широкому кругу (специалистов) участие в
+                            формировании
+                            системы обучения
+                            кадров, соответствует насущным потребностям. Повседневная практика показывает, что
+                            сложившаяся
+                            структура
+                            организации играет важную роль в формировании систем массового участия. Разнообразный и
+                            богатый
+                            опыт начало
+                            повседневной работы по формированию позиции требуют определения и уточнения новых
+                            предложений.
+                        </p>
+                    </div>
+                </a>
+
+                <div class="card-like-button-wrap">
+                    <button class="card-like-button">
+                        <img src="../img/star.svg" alt="В избранное" class="card-like-icon">
+                    </button>
+                    <button class="card-like-button">
+                        <img src="../img/heart.svg" alt="Нравится" class="card-like-icon">
+                    </button>
+                </div>
+                <form class="mt-4">
+                    <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Комментарий">
+                    <button type="submit" class="btn btn-warning mb-2">Опубликовать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
