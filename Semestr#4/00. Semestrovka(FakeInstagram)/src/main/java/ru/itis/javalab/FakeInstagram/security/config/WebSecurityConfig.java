@@ -41,7 +41,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/addPost").authenticated()
                 .antMatchers("/editProfile").authenticated()
                 .antMatchers("/post/**").authenticated()
-                .antMatchers("/files/**").authenticated();
+                .antMatchers("/files/**").authenticated()
+                .antMatchers("/chat").authenticated()
+                .antMatchers("/messages").permitAll();
 
 
         http.formLogin()

@@ -1,0 +1,15 @@
+GET http://localhost/messages?pageId=16
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+POST http://localhost/messages
+Content-Type: application/json
+
+{
+  "pageId" : "16",
+  "text" : "Bye!"
+}
+
+###

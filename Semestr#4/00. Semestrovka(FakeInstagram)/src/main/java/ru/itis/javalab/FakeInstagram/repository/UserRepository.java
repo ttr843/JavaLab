@@ -3,6 +3,7 @@ package ru.itis.javalab.FakeInstagram.repository;
 
 import ru.itis.javalab.FakeInstagram.model.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<Long, User> {
@@ -13,4 +14,6 @@ public interface UserRepository extends CrudRepository<Long, User> {
 
     Optional<User> findByConfirmCode(String confirmCode);
     void updateProfileData(User user);
+
+    List<User> findAll();
 }

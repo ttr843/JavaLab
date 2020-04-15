@@ -28,7 +28,7 @@ public class PostController {
     private UserRepository userRepository;
 
     @GetMapping("/addPost")
-    public String addPost(Authentication authentication, Model model) {
+    public String getView(Authentication authentication, Model model) {
         if (authentication != null) {
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
             User user = userDetails.getUser();
@@ -49,7 +49,7 @@ public class PostController {
     }
 
     @PostMapping(value = "/addPost", consumes = "multipart/form-data")
-    public String signUp(PostDto postDto, @RequestParam("file") MultipartFile multipartFile,
+    public String addPost(PostDto postDto, @RequestParam("file") MultipartFile multipartFile,
                          Authentication authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();

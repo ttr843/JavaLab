@@ -8,6 +8,7 @@
     <context:component-scan base-package="ru.itis.javalab.FakeInstagram"/>
     <mvc:annotation-driven/>
     <mvc:resources mapping="/img/**" location="/static/img/"/>
+    <mvc:resources mapping="/js/**" location="/static/js/"/>
     <mvc:resources mapping="/static/uploads/**" location="/static/uploads"/>
 
 </beans>

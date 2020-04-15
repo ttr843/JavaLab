@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.16">
     <root id="1">
       <ServerVersion>11.5</ServerVersion>
-      <StartupTime>1586295897</StartupTime>
+      <StartupTime>1586839223</StartupTime>
     </root>
     <database id="2" parent="1" name="ArtNet">
       <ObjectId>16444</ObjectId>
@@ -19,9 +19,10 @@
     <database id="4" parent="1" name="FakeInstagram">
       <ObjectId>73937</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2157678</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158465</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|73938|73940|1
+sequence|table|82132|82129|1
 sequence|table|73950|73952|1
 sequence|table|73962|73964|1
 </Relations>
@@ -104,7 +105,7 @@ sequence|table|73962|73964|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2157679</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158466</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="4" name="btree">
@@ -163,7 +164,15 @@ sequence|table|73962|73964|1
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <sequence id="31" parent="23" name="comments_id_seq">
+    <sequence id="31" parent="23" name="chatmessages_id_seq">
+      <ObjectId>82132</ObjectId>
+      <StateNumber>2157706</StateNumber>
+      <Owner>postgres</Owner>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="32" parent="23" name="comments_id_seq">
       <ObjectId>73950</ObjectId>
       <StateNumber>2157650</StateNumber>
       <Owner>postgres</Owner>
@@ -171,7 +180,7 @@ sequence|table|73962|73964|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="32" parent="23" name="posts_id_seq">
+    <sequence id="33" parent="23" name="posts_id_seq">
       <ObjectId>73962</ObjectId>
       <StateNumber>2157656</StateNumber>
       <Owner>postgres</Owner>
@@ -179,7 +188,7 @@ sequence|table|73962|73964|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="33" parent="23" name="user_id_seq">
+    <sequence id="34" parent="23" name="user_id_seq">
       <ObjectId>73938</ObjectId>
       <StateNumber>2157611</StateNumber>
       <Owner>postgres</Owner>
@@ -187,32 +196,63 @@ sequence|table|73962|73964|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <table id="34" parent="23" name="comments">
+    <table id="35" parent="23" name="chatmessages">
+      <ObjectId>82129</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2157834</StateNumber>
+    </table>
+    <table id="36" parent="23" name="comments">
       <ObjectId>73952</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2157650</StateNumber>
     </table>
-    <table id="35" parent="23" name="favorites">
+    <table id="37" parent="23" name="favorites">
       <ObjectId>73959</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2157653</StateNumber>
     </table>
-    <table id="36" parent="23" name="posts">
+    <table id="38" parent="23" name="posts">
       <ObjectId>73964</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2157667</StateNumber>
     </table>
-    <table id="37" parent="23" name="subs">
+    <table id="39" parent="23" name="subs">
       <ObjectId>73971</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2157659</StateNumber>
     </table>
-    <table id="38" parent="23" name="users">
+    <table id="40" parent="23" name="users">
       <ObjectId>73940</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>2157618</StateNumber>
     </table>
-    <column id="39" parent="34" name="id">
+    <column id="41" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2157706</StateNumber>
+      <DefaultExpression>nextval(&apos;chatmessages_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="42" parent="35" name="userid">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2157707</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="43" parent="35" name="pageid">
+      <Position>3</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <StateNumber>2157710</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="44" parent="35" name="text">
+      <Position>4</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <StateNumber>2157711</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="36" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -220,70 +260,70 @@ sequence|table|73962|73964|1
       <DefaultExpression>nextval(&apos;comments_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="40" parent="34" name="idpublicator">
+    <column id="46" parent="36" name="idpublicator">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157650</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="34" name="idpost">
+    <column id="47" parent="36" name="idpost">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157650</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="42" parent="34" name="likeofcomment">
+    <column id="48" parent="36" name="likeofcomment">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2157650</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="43" parent="34" name="text">
+    <column id="49" parent="36" name="text">
       <Position>5</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157650</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="44" parent="34" name="date">
+    <column id="50" parent="36" name="date">
       <Position>6</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157650</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="45" parent="34" name="comments_pk">
+    <index id="51" parent="36" name="comments_pk">
       <ObjectId>73957</ObjectId>
       <StateNumber>2157650</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="46" parent="34" name="comments_pk">
+    <key id="52" parent="36" name="comments_pk">
       <ObjectId>73958</ObjectId>
       <StateNumber>2157650</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>comments_pk</UnderlyingIndexName>
     </key>
-    <column id="47" parent="35" name="idowner">
+    <column id="53" parent="37" name="idowner">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157653</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="48" parent="35" name="idpost">
+    <column id="54" parent="37" name="idpost">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157653</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="49" parent="36" name="id">
+    <column id="55" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -291,21 +331,21 @@ sequence|table|73962|73964|1
       <DefaultExpression>nextval(&apos;posts_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="36" name="idpublicator">
+    <column id="56" parent="38" name="idpublicator">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157656</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="51" parent="36" name="text">
+    <column id="57" parent="38" name="text">
       <Position>3</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157665</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="36" name="likeofpost">
+    <column id="58" parent="38" name="likeofpost">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -313,63 +353,63 @@ sequence|table|73962|73964|1
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="53" parent="36" name="date">
+    <column id="59" parent="38" name="date">
       <Position>5</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157656</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="54" parent="36" name="place">
+    <column id="60" parent="38" name="place">
       <Position>6</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157666</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="55" parent="36" name="photo">
+    <column id="61" parent="38" name="photo">
       <Position>7</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157667</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="56" parent="36" name="posts_pk">
+    <index id="62" parent="38" name="posts_pk">
       <ObjectId>73969</ObjectId>
       <StateNumber>2157662</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="57" parent="36" name="posts_pk">
+    <key id="63" parent="38" name="posts_pk">
       <ObjectId>73970</ObjectId>
       <StateNumber>2157656</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>posts_pk</UnderlyingIndexName>
     </key>
-    <column id="58" parent="37" name="idwho">
+    <column id="64" parent="39" name="idwho">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157659</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="37" name="idtowho">
+    <column id="65" parent="39" name="idtowho">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157659</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="60" parent="37" name="date">
+    <column id="66" parent="39" name="date">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>2157659</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="61" parent="38" name="id">
+    <column id="67" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -377,64 +417,64 @@ sequence|table|73962|73964|1
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="62" parent="38" name="name">
+    <column id="68" parent="40" name="name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157622</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="38" name="surname">
+    <column id="69" parent="40" name="surname">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157623</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="38" name="email">
+    <column id="70" parent="40" name="email">
       <Position>4</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="65" parent="38" name="hashpassword">
+    <column id="71" parent="40" name="hashpassword">
       <Position>5</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="66" parent="38" name="role">
+    <column id="72" parent="40" name="role">
       <Position>6</Position>
       <DataType>varchar(16)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="67" parent="38" name="state">
+    <column id="73" parent="40" name="state">
       <Position>7</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="68" parent="38" name="photo_path">
+    <column id="74" parent="40" name="photo_path">
       <Position>8</Position>
       <DataType>varchar(128)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="38" name="confirm_code">
+    <column id="75" parent="40" name="confirm_code">
       <Position>10</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2157618</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="70" parent="38" name="user_pk">
+    <index id="76" parent="40" name="user_pk">
       <ObjectId>73947</ObjectId>
       <StateNumber>2157611</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="71" parent="38" name="user_pk">
+    <key id="77" parent="40" name="user_pk">
       <ObjectId>73948</ObjectId>
       <StateNumber>2157611</StateNumber>
       <ColNames>id</ColNames>
