@@ -39,7 +39,7 @@ public class JwtAuthorizationFilter implements Filter {
         Optional<Cookie> optionalCookie = cookies.stream().filter(cookie -> cookie.getName().equals("token")).findFirst();
         if (optionalCookie.isPresent()) {
             Cookie cookie = optionalCookie.get();
-            if (userService.verify(cookie.getValue()).isPresent()) {
+            if (userService.check(cookie.getValue()).isPresent()) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
                 response.setStatus(403);

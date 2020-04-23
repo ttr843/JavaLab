@@ -9,7 +9,7 @@ public interface UserService {
 
     void signIn(UserDto userDto);
 
-    Optional<UserDto> verify(String token);
+    Optional<UserDto> check(String token);
 
     Optional<UserDto> findUserById(Long id);
 }

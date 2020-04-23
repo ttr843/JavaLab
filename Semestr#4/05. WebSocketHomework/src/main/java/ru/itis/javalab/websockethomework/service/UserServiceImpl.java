@@ -10,22 +10,19 @@ import org.springframework.stereotype.Service;
 import ru.itis.javalab.websockethomework.repository.UserRepository;
 import ru.itis.javalab.websockethomework.dto.UserDto;
 import ru.itis.javalab.websockethomework.model.User;
-import ru.itis.javalab.websockethomework.util.PasswordEncrypt;
+import ru.itis.javalab.websockethomework.util.PasswordEncoder;
 
 import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private final PasswordEncrypt passwordEncrypt;
-    private final Environment environment;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private  Environment environment;
+    @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository, PasswordEncrypt passwordEncrypt, Environment environment) {
-        this.userRepository = userRepository;
-        this.passwordEncrypt = passwordEncrypt;
-        this.environment = environment;
-    }
 
     @Override
     public void signUp(UserDto userDto) {
@@ -33,7 +30,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(User.builder()
                     .email(userDto.getEmail())
                     .name(userDto.getName())
-                    .passwordHash(passwordEncrypt.getPasswordHash(userDto.getPassword()))
+                    .passwordHash(passwordEncoder.hashPassword(userDto.getPassword()))
                     .build());
         }
     }
@@ -43,7 +40,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findUserByEmail(userDto.getEmail());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            if (passwordEncrypt.verifyPassword(userDto.getPassword(), user.getPasswordHash())) {
+            if (passwordEncoder.checkPassword(userDto.getPassword(), user.getPasswordHash())) {
                 Algorithm algorithm = Algorithm.HMAC256(environment.getProperty("password.secret.key"));
                 String token = JWT.create()
                         .withSubject(String.valueOf(user.getId()))
@@ -55,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<UserDto> verify(String token) {
+    public Optional<UserDto> check(String token) {
         Algorithm algorithm = Algorithm.HMAC256(environment.getProperty("password.secret.key"));
         try {
             JWTVerifier verifier = JWT.require(algorithm).build();

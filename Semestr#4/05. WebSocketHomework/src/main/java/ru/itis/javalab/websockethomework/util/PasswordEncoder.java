@@ -7,9 +7,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Component
-public class PasswordEncrypt {
+public class PasswordEncoder {
 
-    public String getPasswordHash(String str) {
+    public String hashPassword(String str) {
         String hash = null;
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -31,7 +31,7 @@ public class PasswordEncrypt {
         return hexString.toString();
     }
 
-    public boolean verifyPassword(String password, String hash) {
-        return getPasswordHash(password).equals(hash);
+    public boolean checkPassword(String password, String hash) {
+        return hashPassword(password).equals(hash);
     }
 }

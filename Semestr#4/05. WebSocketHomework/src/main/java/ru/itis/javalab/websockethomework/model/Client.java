@@ -1,4 +1,4 @@
-package ru.itis.javalab.websockethomework.chat;
+package ru.itis.javalab.websockethomework.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

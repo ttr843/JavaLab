@@ -10,11 +10,11 @@ import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-import ru.itis.javalab.websockethomework.chat.event.Event;
-import ru.itis.javalab.websockethomework.chat.event.Message;
-import ru.itis.javalab.websockethomework.chat.event.Room;
+import ru.itis.javalab.websockethomework.model.Event;
+import ru.itis.javalab.websockethomework.model.Message;
+import ru.itis.javalab.websockethomework.model.Room;
 import ru.itis.javalab.websockethomework.dto.UserDto;
-import ru.itis.javalab.websockethomework.chat.Client;
+import ru.itis.javalab.websockethomework.model.Client;
 
 import java.io.IOException;
 import java.util.ArrayList;

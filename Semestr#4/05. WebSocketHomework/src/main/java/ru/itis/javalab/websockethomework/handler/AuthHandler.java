@@ -17,12 +17,10 @@ import java.util.Optional;
 
 @Component
 public class AuthHandler implements HandshakeInterceptor {
-    private UserService userService;
+
 
     @Autowired
-    public AuthHandler(UserService userService) {
-        this.userService = userService;
-    }
+    private UserService userService;
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse,
@@ -33,7 +31,7 @@ public class AuthHandler implements HandshakeInterceptor {
             serverHttpResponse.setStatusCode(HttpStatus.FORBIDDEN);
             return false;
         }
-        Optional<UserDto> optionalUser = userService.verify(token);
+        Optional<UserDto> optionalUser = userService.check(token);
         if (optionalUser.isPresent()) {
             map.put("user", optionalUser.get());
             return true;
