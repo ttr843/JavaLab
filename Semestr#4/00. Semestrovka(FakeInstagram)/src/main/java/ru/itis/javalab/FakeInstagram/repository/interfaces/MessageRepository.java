@@ -1,7 +1,8 @@
-package ru.itis.javalab.FakeInstagram.repository;
+package ru.itis.javalab.FakeInstagram.repository.interfaces;
 
 import ru.itis.javalab.FakeInstagram.dto.MessageDto;
 import ru.itis.javalab.FakeInstagram.model.Message;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.CrudRepository;
 
 import java.util.List;
 

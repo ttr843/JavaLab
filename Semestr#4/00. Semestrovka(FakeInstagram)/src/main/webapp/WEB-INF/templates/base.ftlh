@@ -11,24 +11,27 @@
     </head>
     <body>
     <nav class="sticky-top navbar navbar-dark navbar-expand bg-dark">
-        <a class="navbar-brand" href="news.html">FakeInstagram</a>
+        <a class="navbar-brand" href="/news">FakeInstagram</a>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="favorites.html">favorites</a>
+                    <a class="nav-link" href="/news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="subscriptions.html">Subs</a>
+                    <a class="nav-link" href="favorites.html">Favorites</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/addPost">add</a>
+                    <a class="nav-link" href="/subscriptions">Subscriptions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/addPost">Add</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/chat">Chat</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="input key word" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" action="/search" method="post" >
+                <input class="form-control mr-sm-2" name="keyWord" type="search" placeholder="input key word" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="dropdown ml-4">

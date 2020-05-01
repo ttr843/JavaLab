@@ -27,7 +27,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
         http.csrf().disable();
 
         http.authorizeRequests()
@@ -43,7 +42,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/post/**").authenticated()
                 .antMatchers("/files/**").authenticated()
                 .antMatchers("/chat").authenticated()
-                .antMatchers("/messages").permitAll();
+                .antMatchers("/messages").permitAll()
+                .antMatchers("/search").authenticated()
+                .antMatchers("/subscribe").authenticated()
+                .antMatchers("/subscriptions").authenticated()
+                .antMatchers("/deleteSub").authenticated()
+                .antMatchers("/news").authenticated();
+
 
 
         http.formLogin()

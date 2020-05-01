@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import ru.itis.javalab.FakeInstagram.model.User;
-import ru.itis.javalab.FakeInstagram.repository.UserRepository;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.UserRepository;
 
 
 import java.util.Optional;

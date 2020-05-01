@@ -16,18 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="js/chat.js"></script>
-
-    <title>Chat</title>
+    <title>Subscriptions</title>
     <style>
         a.profile-dropdown-toggle {
             color: white;
@@ -79,57 +68,35 @@
             text-decoration: none;
         }
     </style>
-    <script>
-        function sendMessage(pageId, text) {
-            let body = {
-                pageId: pageId,
-                text: text,
-                userId: pageId
-            };
-
-            $.ajax({
-                url: "/messages",
-                method: "POST",
-                data: JSON.stringify(body),
-                contentType: "application/json",
-                dataType: "json",
-                complete: function () {
-                    if (text === 'New user: ${user.getName()} ${user.getSurname()}') {
-                        receiveMessage(pageId)
-                    }
-                }
-            });
-        }
-    </script>
-    <script>
-        function receiveMessage(pageId) {
-            $.ajax({
-                url: "/messages?pageId=" + pageId,
-                method: "GET",
-                dataType: "json",
-                contentType: "application/json",
-                success: function (response) {
-                    response.forEach(function (element,index) {
-                        $('#messages').first().after('<li>' + 'userId:' + element['pageId'] + ' <b>'
-                            + element['text'] + '</b></li>');
-                    })
-                    receiveMessage(pageId);
-                }
-            })
-        }
-    </script>
 </#macro>
 <#macro content>
-<body onload="sendMessage('${pageId}', 'New user: ${user.getName()} ${user.getSurname()}')">
-<div>
-    <input id="message" placeholder="Write message...">
-    <button onclick="sendMessage('${pageId}',
-            $('#message').val())">send</button>
-</div>
-<div>
-    <ul id="messages">
-
-    </ul>
-</div>
+    <div class="container container-post">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4">Subscriptions</h2>
+            </div>
+        </div>
+        <#list subs as sub>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card card-post">
+                        <div class="media media-author">
+                            <img src="${sub.getPhotoPath()}"
+                                 class="mr-3 img-fluid media-author-photo" alt="UserPhoto" width="300" height="300">
+                        </div>
+                        <p></p>
+                        <div class="media-body media-author-body">
+                            <h6 class="mt-0">${sub.getName() + " " + sub.getSurname()}</h6>
+                        </div>
+                        <p></p>
+                        <form action="/deleteSub" method="post">
+                            <input type="hidden" value="${sub.getId()}" name="subId">
+                            <button type="submit" class="btn btn-outline-dark mb-2">Unsubscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </#list>
+    </div>
 </#macro>
 <@main/>

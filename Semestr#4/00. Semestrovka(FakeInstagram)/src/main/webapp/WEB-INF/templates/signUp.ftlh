@@ -31,6 +31,9 @@
             display: flex;
             justify-content: space-between;
         }
+        .error{
+            color: #ff0000;
+        }
     </style>
 </head>
 <body>

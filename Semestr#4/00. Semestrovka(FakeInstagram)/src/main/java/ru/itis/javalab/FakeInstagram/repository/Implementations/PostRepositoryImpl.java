@@ -1,22 +1,17 @@
-package ru.itis.javalab.FakeInstagram.repository;
+package ru.itis.javalab.FakeInstagram.repository.Implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import ru.itis.javalab.FakeInstagram.model.Post;
-import ru.itis.javalab.FakeInstagram.model.Role;
-import ru.itis.javalab.FakeInstagram.model.State;
-import ru.itis.javalab.FakeInstagram.model.User;
-import ru.itis.javalab.FakeInstagram.service.UploadService;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.PostRepository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class PostRepositoryImpl implements PostRepository {
@@ -61,8 +56,7 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public List<Post> findPostsByUserId(Long id) {
         try {
-            List<Post> posts = jdbcTemplate.query(SQL_FIND_BY_USER_ID,new Object[]{id},postRowMapper);
-            return posts;
+            return jdbcTemplate.query(SQL_FIND_BY_USER_ID,new Object[]{id},postRowMapper);
         } catch (EmptyResultDataAccessException e) {
             throw new EmptyResultDataAccessException(0);
         }
@@ -72,10 +66,18 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public Post findPostById(Long postId) {
         try {
-            Post post = jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new Object[]{postId}, postRowMapper);
-            return post;
+            return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new Object[]{postId}, postRowMapper);
         }catch (EmptyResultDataAccessException e) {
             throw  new EmptyResultDataAccessException(0);
+        }
+    }
+    private static final String SQL_FIND_BY_HASH_TAG = "SELECT * from posts where text like ?";
+    @Override
+    public List<Post> findPostsByHashTag(String hashtag) {
+        try {
+            return jdbcTemplate.query(SQL_FIND_BY_HASH_TAG,new Object[]{"%" + hashtag + "%"},postRowMapper);
+        } catch (EmptyResultDataAccessException e) {
+            throw new EmptyResultDataAccessException(0);
         }
     }
 

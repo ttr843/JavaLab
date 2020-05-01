@@ -1,22 +1,17 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.implementations;
 
 import lombok.SneakyThrows;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.javalab.FakeInstagram.Utils.FileStorageUtil;
 import ru.itis.javalab.FakeInstagram.model.FileInfo;
+import ru.itis.javalab.FakeInstagram.service.interfaces.UploadService;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
 
 @Service
 public class UploadServiceImpl implements UploadService {

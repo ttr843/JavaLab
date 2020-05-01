@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.interfaces;
 
 import ru.itis.javalab.FakeInstagram.dto.MessageDto;
 

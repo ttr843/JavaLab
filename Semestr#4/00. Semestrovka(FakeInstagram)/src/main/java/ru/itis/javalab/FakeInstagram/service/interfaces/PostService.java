@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.interfaces;
 
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.javalab.FakeInstagram.dto.PostDto;

@@ -7,14 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.javalab.FakeInstagram.dto.PostDto;
-import ru.itis.javalab.FakeInstagram.dto.UserDto;
 import ru.itis.javalab.FakeInstagram.model.Post;
 import ru.itis.javalab.FakeInstagram.model.User;
-import ru.itis.javalab.FakeInstagram.repository.UserRepository;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.UserRepository;
 import ru.itis.javalab.FakeInstagram.security.detail.UserDetailsImpl;
-import ru.itis.javalab.FakeInstagram.service.PostService;
-import ru.itis.javalab.FakeInstagram.service.ProfileService;
-import ru.itis.javalab.FakeInstagram.service.SignUpService;
+import ru.itis.javalab.FakeInstagram.service.interfaces.PostService;
 
 import java.util.Optional;
 

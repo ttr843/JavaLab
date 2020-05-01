@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import ru.itis.javalab.FakeInstagram.service.UploadService;
+import ru.itis.javalab.FakeInstagram.service.interfaces.UploadService;
 
 import javax.servlet.http.HttpServletResponse;
 

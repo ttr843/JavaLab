@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.implementations;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -12,7 +12,10 @@ import ru.itis.javalab.FakeInstagram.dto.UserDto;
 import ru.itis.javalab.FakeInstagram.model.Role;
 import ru.itis.javalab.FakeInstagram.model.State;
 import ru.itis.javalab.FakeInstagram.model.User;
-import ru.itis.javalab.FakeInstagram.repository.UserRepository;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.UserRepository;
+import ru.itis.javalab.FakeInstagram.service.interfaces.UploadService;
+import ru.itis.javalab.FakeInstagram.service.interfaces.EmailService;
+import ru.itis.javalab.FakeInstagram.service.interfaces.SignUpService;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -1,10 +1,11 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.javalab.FakeInstagram.model.State;
 import ru.itis.javalab.FakeInstagram.model.User;
-import ru.itis.javalab.FakeInstagram.repository.UserRepository;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.UserRepository;
+import ru.itis.javalab.FakeInstagram.service.interfaces.ConfirmService;
 
 import java.util.Optional;
 

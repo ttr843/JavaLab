@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.16">
     <root id="1">
       <ServerVersion>11.5</ServerVersion>
-      <StartupTime>1586839223</StartupTime>
+      <StartupTime>1588153223</StartupTime>
     </root>
     <database id="2" parent="1" name="ArtNet">
       <ObjectId>16444</ObjectId>
@@ -19,7 +19,7 @@
     <database id="4" parent="1" name="FakeInstagram">
       <ObjectId>73937</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158465</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158546</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|73938|73940|1
 sequence|table|82132|82129|1
@@ -105,7 +105,7 @@ sequence|table|73962|73964|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158466</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158547</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="4" name="btree">
@@ -402,14 +402,7 @@ sequence|table|73962|73964|1
       <StateNumber>2157659</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="66" parent="39" name="date">
-      <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>2157659</StateNumber>
-      <DefaultExpression>0</DefaultExpression>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="67" parent="40" name="id">
+    <column id="66" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -417,64 +410,64 @@ sequence|table|73962|73964|1
       <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="40" name="name">
+    <column id="67" parent="40" name="name">
       <Position>2</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157622</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="40" name="surname">
+    <column id="68" parent="40" name="surname">
       <Position>3</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157623</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="40" name="email">
+    <column id="69" parent="40" name="email">
       <Position>4</Position>
       <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="40" name="hashpassword">
+    <column id="70" parent="40" name="hashpassword">
       <Position>5</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="72" parent="40" name="role">
+    <column id="71" parent="40" name="role">
       <Position>6</Position>
       <DataType>varchar(16)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="73" parent="40" name="state">
+    <column id="72" parent="40" name="state">
       <Position>7</Position>
       <DataType>varchar(32)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="74" parent="40" name="photo_path">
+    <column id="73" parent="40" name="photo_path">
       <Position>8</Position>
       <DataType>varchar(128)|0s</DataType>
       <StateNumber>2157611</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="75" parent="40" name="confirm_code">
+    <column id="74" parent="40" name="confirm_code">
       <Position>10</Position>
       <DataType>varchar(64)|0s</DataType>
       <StateNumber>2157618</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="76" parent="40" name="user_pk">
+    <index id="75" parent="40" name="user_pk">
       <ObjectId>73947</ObjectId>
       <StateNumber>2157611</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="77" parent="40" name="user_pk">
+    <key id="76" parent="40" name="user_pk">
       <ObjectId>73948</ObjectId>
       <StateNumber>2157611</StateNumber>
       <ColNames>id</ColNames>

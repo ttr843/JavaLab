@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.service;
+package ru.itis.javalab.FakeInstagram.service.interfaces;
 
 import lombok.SneakyThrows;
 import org.springframework.web.multipart.MultipartFile;

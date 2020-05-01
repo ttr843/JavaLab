@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.repository;
+package ru.itis.javalab.FakeInstagram.repository.Implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import ru.itis.javalab.FakeInstagram.dto.MessageDto;
 import ru.itis.javalab.FakeInstagram.model.Message;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.MessageRepository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;

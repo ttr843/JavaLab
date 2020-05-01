@@ -1,11 +1,10 @@
 package ru.itis.javalab.FakeInstagram.restController;
 
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.javalab.FakeInstagram.dto.MessageDto;
-import ru.itis.javalab.FakeInstagram.service.ChatService;
+import ru.itis.javalab.FakeInstagram.service.interfaces.ChatService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
