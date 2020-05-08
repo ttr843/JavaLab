@@ -6,27 +6,22 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.itis.javalab.FakeInstagram.model.Post;
 import ru.itis.javalab.FakeInstagram.model.User;
 import ru.itis.javalab.FakeInstagram.security.detail.UserDetailsImpl;
-import ru.itis.javalab.FakeInstagram.service.interfaces.NewsService;
-
-import java.util.List;
+import ru.itis.javalab.FakeInstagram.service.interfaces.PostService;
 
 @Controller
 @Profile("mvc")
-public class NewsController {
-
+public class FavoritesController {
     @Autowired
-    private NewsService newsService;
+    PostService postService;
 
-    @GetMapping(value = "/news")
-    public String showNews(Authentication authentication, Model model){
+    @GetMapping("/favorites")
+    public String getChatPage(Model model, Authentication authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
-        model.addAttribute("user", user);
-        List<Post> posts = newsService.showNews(user);
-        model.addAttribute("posts",posts);
-        return "news";
+        model.addAttribute("user",user);
+        model.addAttribute("posts", postService.findAllFavoritesPosts(user));
+        return "favorites";
     }
 }

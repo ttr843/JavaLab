@@ -1,3 +1,5 @@
+
+
 <#include "base.ftlh"/>
 <#macro head>
     <meta charset="UTF-8">
@@ -16,7 +18,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-    <title>Post ${post.getId()}</title>
+    <title>Favorites</title>
     <style>
         a.profile-dropdown-toggle {
             color: white;
@@ -121,68 +123,37 @@
 </#macro>
 <#macro content>
     <div class="container container-post">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4">Favorites</h2>
+            </div>
+        </div>
         <div class="row justify-content-center">
-            <div class="col-10">
-                <div class="card card-post">
-                    <div class="media media-author">
-                        <img src="${user.getPhotoPath()}" class="mr-3 img-fluid media-author-photo" alt="User">
-                        <div class="media-body">
-                            <h5 class="mt-0">${user.getName()}</h5>
-                            ${user.getEmail()}
-                        </div>
-                        <a href="/profile" class="btn-close-post">
-                            <img src="/img/close.svg" alt="Close">
-                        </a>
-                    </div>
-                    <img src="${post.getPhoto()}" class="card-img-top" alt="POST">
-                    <div class="card-body">
-                        <p class="card-text">
-                        <h5>${post.getPlace()}</h5>
-                        </p>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            ${post.getText()}
-                        </p>
-                    </div>
-                    <div class="card-like-button-wrap">
-                        <form action="/addToFavorites/${post.getId()}" method="post">
-                        <button class="card-like-button" type="submit">
-                            <img src="../img/star.svg" alt="FAVOURITES" class="card-like-icon">
-                        </button>
-                        </form>
-                        <button class="card-like-button">
-                            <img src="../img/heart.svg" alt="LIKE" class="card-like-icon">
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <#if comments??>
-                            <#list comments as comment>
-                                <ul class="list-unstyled">
-                                    <li class="media">
-                                        <div class="media-body">
-                                            <h6 class="mt-0 mb-1">${comment.getNamePublicator()}</h6>
-                                            ${comment.getText()}
-                                            <p class="comment-date">
-                                                <small>${comment.getDate()}</small>
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </#list>
-                        </#if>
-                        <form action="/addComment" method="post">
-                            <div class="form-group">
-                                <label for="comment">COMMENT</label>
-                                <textarea class="form-control" id="comment" rows="3" name="text"></textarea>
-                                <input type="hidden" name="idPost" value="${post.getId()}">
+            <#list posts as post>
+                <div class="col">
+                    <div class="card card-post">
+                        <a href="/post/${post.getId()}">
+                            <img src="${post.getPhoto()}" alt="Image ${post.getId()}" width="300"
+                                 height="350">
+                            <div class="card-body">
+                                <p><b>${post.getPlace()}</b></p>
+                                <p class="card-text">${post.getText()}
+                                </p>
+                                <p><b>${post.getDate()}</b></p>
                             </div>
-                            <button type="submit" class="btn btn-dark float-right">PUBLISH</button>
-                        </form>
+                        </a>
+                        <div class="card-like-button-wrap">
+                            <button class="card-like-button" >
+                                <img src="../img/heart.svg" alt="like" class="card-like-icon">
+                                ${post.getLikeOfPost()}
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <p></p>
+            </#list>
         </div>
     </div>
 </#macro>
 <@main/>
+

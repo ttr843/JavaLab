@@ -11,4 +11,8 @@ public interface PostRepository extends CrudRepository<Long, Post> {
     Post findPostById(Long postId);
 
     List<Post> findPostsByHashTag(String hashtag);
+
+    void addPostToFavorites(long idPost,long idUser);
+
+    List<Post> findAllFavoritesPosts(Long id);
 }

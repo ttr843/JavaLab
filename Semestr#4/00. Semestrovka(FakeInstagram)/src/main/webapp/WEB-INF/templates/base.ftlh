@@ -18,7 +18,7 @@
                     <a class="nav-link" href="/news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="favorites.html">Favorites</a>
+                    <a class="nav-link" href="/favorites">Favorites</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/subscriptions">Subscriptions</a>

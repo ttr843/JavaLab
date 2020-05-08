@@ -1,5 +1,6 @@
 package ru.itis.javalab.FakeInstagram.controller;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 
 @Controller
+@Profile("mvc")
 public class ChatController {
 
     @GetMapping("/chat")

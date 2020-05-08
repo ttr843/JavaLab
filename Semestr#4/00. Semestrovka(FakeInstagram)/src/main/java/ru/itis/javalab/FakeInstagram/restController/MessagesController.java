@@ -1,6 +1,7 @@
 package ru.itis.javalab.FakeInstagram.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.itis.javalab.FakeInstagram.dto.MessageDto;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@Profile("mvc")
 public class MessagesController {
 
     private Map<String, List<MessageDto>> messages = new HashMap<>();

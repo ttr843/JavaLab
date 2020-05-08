@@ -31,6 +31,7 @@ public class MessageRepositoryImpl implements MessageRepository {
                     .text(row.getString("text"))
                     .userId(row.getLong("userid"))
                     .build();
+
     private RowMapper<String> pageRowMapper = (row,number) ->
             String.valueOf(row.getString("pageid"));
 

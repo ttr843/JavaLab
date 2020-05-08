@@ -19,12 +19,12 @@
     <database id="4" parent="1" name="FakeInstagram">
       <ObjectId>73937</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158546</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158597</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|73938|73940|1
-sequence|table|82132|82129|1
 sequence|table|73950|73952|1
 sequence|table|73962|73964|1
+sequence|table|82132|82129|1
 </Relations>
     </database>
     <database id="5" parent="1" name="Javalabhomework">
@@ -105,7 +105,7 @@ sequence|table|73962|73964|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158547</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158598</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="4" name="btree">
@@ -204,7 +204,7 @@ sequence|table|73962|73964|1
     <table id="36" parent="23" name="comments">
       <ObjectId>73952</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2157650</StateNumber>
+      <StateNumber>2158596</StateNumber>
     </table>
     <table id="37" parent="23" name="favorites">
       <ObjectId>73959</ObjectId>
@@ -260,12 +260,12 @@ sequence|table|73962|73964|1
       <DefaultExpression>nextval(&apos;comments_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="46" parent="36" name="idpublicator">
+    <column id="46" parent="36" name="namePublicator">
       <Position>2</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>2157650</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>2158596</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <column id="47" parent="36" name="idpost">
       <Position>3</Position>
@@ -297,7 +297,7 @@ sequence|table|73962|73964|1
     </column>
     <index id="51" parent="36" name="comments_pk">
       <ObjectId>73957</ObjectId>
-      <StateNumber>2157650</StateNumber>
+      <StateNumber>2158596</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
