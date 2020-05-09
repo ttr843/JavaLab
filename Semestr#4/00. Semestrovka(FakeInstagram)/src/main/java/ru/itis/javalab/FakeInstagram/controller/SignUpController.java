@@ -31,9 +31,9 @@ public class SignUpController {
     }
 
 
-    @PostMapping(value = "/signUp", consumes = "multipart/form-data")
-    public String signUp(UserDto userDto, BindingResult bindingResult, @RequestParam("file") MultipartFile multipartFile) {
-        signUpService.signUp(userDto, multipartFile);
+    @PostMapping(value = "/signUp")
+    public String signUp(UserDto userDto, BindingResult bindingResult) {
+        signUpService.signUp(userDto);
         return "to_confirm";
     }
 }

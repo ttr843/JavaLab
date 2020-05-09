@@ -29,6 +29,7 @@ public class UserRepositoryImpl implements UserRepository {
     private static final String SQL_FIND_BY_ID = "SELECT * from users where id = ?";
     private static final String SQL_UPDATE_USER_INFO = "update users set name = ?,surname = ?,email = ?," +
             "hashpassword = ?, photo_path = ? where id = ?";
+    private static final String SQL_UPDATE_USER_AVATAR = "update users set photo_path = ? where id = ?";
     private static final String SQL_FIND_ALL = "select * from users";
     private JdbcTemplate jdbcTemplate;
     private BCryptPasswordEncoder passwordEncoder;
@@ -139,5 +140,15 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public List<User> findAll() {
         return jdbcTemplate.query(SQL_FIND_ALL,userRowMapper);
+    }
+
+    @Override
+    public void updateProfileAvatar(String path, long userId) {
+        jdbcTemplate.update(connection -> {
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL_UPDATE_USER_AVATAR);
+            preparedStatement.setString(1, path);
+            preparedStatement.setLong(2, userId);
+            return preparedStatement;
+        });
     }
 }

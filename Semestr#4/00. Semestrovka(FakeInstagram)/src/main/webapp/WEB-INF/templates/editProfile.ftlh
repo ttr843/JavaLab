@@ -4,6 +4,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -78,30 +80,30 @@
             </div>
             <div class="col">
                 <h2>Edit profile</h2>
-                <form method="post"  action="/editProfile" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="name">name</label>
-                            <input type="text" id="name" name="name" placeholder="${user.getName()}"  class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label for="surname">surname</label>
-                            <input type="text"  id="surname" name="surname" placeholder="${user.getSurname()}" class="form-control" >
-                        </div>
-                        <div class="form-group">
-                            <label for="email">email</label>
-                            <input type="text" id="email" name="email" placeholder="${user.getEmail()}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">password</label>
-                            <input type="password" id="password" name="password" placeholder="Write new password..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">photo</label>
-                            <input type="file" class="form-control-file" id="photo" name="file">
-                        </div>
-                        <div class="btns-wrapper">
-                            <button type="submit" class="btn btn-dark">edit</button>
-                        </div>
+                <form method="post" action="/editProfile">
+                    <div class="form-group">
+                        <label for="name">name</label>
+                        <input type="text" id="name" name="name" placeholder="${user.getName()}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">surname</label>
+                        <input type="text" id="surname" name="surname" placeholder="${user.getSurname()}"
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" id="email" name="email" placeholder="${user.getEmail()}"
+                               class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" id="password" name="password" placeholder="Write new password..."
+                               class="form-control">
+                    </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                    <div class="btns-wrapper">
+                        <button type="submit" class="btn btn-dark">edit</button>
+                    </div>
                 </form>
             </div>
         </div>

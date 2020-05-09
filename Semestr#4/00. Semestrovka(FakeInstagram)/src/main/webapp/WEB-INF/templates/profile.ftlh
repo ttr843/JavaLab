@@ -75,6 +75,14 @@
             <div class="col user-profile-col">
                 <img src="${user.getPhotoPath()}" alt="avatar"
                      class="img-fluid user-profile-photo mb-3">
+                <form action="/addPhotoToAvatar?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="photo">photo</label>
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                                        <input type="file" class="form-control-file" id="photo" name="file">
+                                    </div>
+                    <button type="submit" class="btn btn-outline-dark mb-2">Edit photo</button>
+                </form>
             </div>
             <div class="col">
                 <h2>Profile</h2>

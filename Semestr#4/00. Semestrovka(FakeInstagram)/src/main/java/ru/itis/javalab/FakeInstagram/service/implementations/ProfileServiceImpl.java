@@ -29,14 +29,8 @@ public class ProfileServiceImpl implements ProfileService {
     private SubscriptionsRepository subscriptionsRepository;
 
     @Override
-    public void editProfile(UserDto userDto, MultipartFile multipartFile, User user) {
-        String path;
+    public void editProfile(UserDto userDto,User user) {
         String password;
-        if (multipartFile != null) {
-            path = uploadService.saveFile(multipartFile);
-        }else {
-            path = user.getPhotoPath();
-        }
         if(userDto.getPassword() == null ){
             password = user.getHashPassword();
         }else {
@@ -47,7 +41,7 @@ public class ProfileServiceImpl implements ProfileService {
                 .surname(userDto.getSurname())
                 .email(userDto.getEmail())
                 .hashPassword(password)
-                .photoPath(path)
+                .photoPath(user.getPhotoPath())
                 .id(user.getId())
                 .build();
         userRepository.updateProfileData(newUser);
@@ -61,5 +55,10 @@ public class ProfileServiceImpl implements ProfileService {
     @Override
     public void deleteSub(SubDto subDto, User user) {
         subscriptionsRepository.deleteSub(subDto.getSubId(),user.getId());
+    }
+
+    @Override
+    public void updatePhotoAvatar(MultipartFile multipartFile, User user) {
+        userRepository.updateProfileAvatar(uploadService.saveFile(multipartFile),user.getId());
     }
 }

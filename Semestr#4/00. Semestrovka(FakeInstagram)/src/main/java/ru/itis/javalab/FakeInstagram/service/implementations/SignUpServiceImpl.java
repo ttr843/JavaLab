@@ -48,13 +48,13 @@ public class SignUpServiceImpl implements SignUpService {
     }
 
     @Override
-    public UserDto signUp(UserDto userDto, MultipartFile multipartFile) {
+    public UserDto signUp(UserDto userDto) {
         User user = User.builder()
                 .name(userDto.getName())
                 .surname(userDto.getSurname())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
-                .photoPath(uploadService.saveFile(multipartFile))
+                .photoPath("../img/empty-photo.png")
                 .confirm_code(UUID.randomUUID().toString())
                 .role(Role.USER)
                 .state(State.NOT_CONFIRMED)

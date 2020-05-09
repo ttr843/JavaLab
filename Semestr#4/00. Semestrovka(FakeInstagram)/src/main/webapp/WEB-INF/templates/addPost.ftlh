@@ -4,6 +4,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -77,7 +79,7 @@
             </div>
             <div class="col">
                 <h2>Add post</h2>
-                <form action="/addPost" method="POST" enctype="multipart/form-data">
+                <form action="/addPost?${_csrf.parameterName}=${_csrf.token}" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="desc">Text</label>
                         <textarea class="form-control" id="desc" rows="3" name="text"></textarea>
@@ -90,6 +92,7 @@
                         <label for="photo">Photo</label>
                         <input type="file" class="form-control-file" id="photo" name="file">
                     </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                     <button type="submit" class="btn btn-warning">publish</button>
                 </form>
             </div>

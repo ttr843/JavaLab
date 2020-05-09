@@ -6,15 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ru.itis.javalab.FakeInstagram.dto.MessageDto;
 import ru.itis.javalab.FakeInstagram.model.Comment;
-import ru.itis.javalab.FakeInstagram.model.Message;
-import ru.itis.javalab.FakeInstagram.model.Post;
 import ru.itis.javalab.FakeInstagram.repository.interfaces.CommentRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

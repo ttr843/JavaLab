@@ -147,6 +147,7 @@
                     </div>
                     <div class="card-like-button-wrap">
                         <form action="/addToFavorites/${post.getId()}" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                         <button class="card-like-button" type="submit">
                             <img src="../img/star.svg" alt="FAVOURITES" class="card-like-icon">
                         </button>
@@ -176,6 +177,7 @@
                                 <label for="comment">COMMENT</label>
                                 <textarea class="form-control" id="comment" rows="3" name="text"></textarea>
                                 <input type="hidden" name="idPost" value="${post.getId()}">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                             </div>
                             <button type="submit" class="btn btn-dark float-right">PUBLISH</button>
                         </form>

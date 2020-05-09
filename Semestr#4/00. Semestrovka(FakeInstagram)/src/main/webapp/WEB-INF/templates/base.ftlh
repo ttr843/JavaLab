@@ -32,6 +32,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" action="/search" method="post" >
                 <input class="form-control mr-sm-2" name="keyWord" type="search" placeholder="input key word" aria-label="Search">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="dropdown ml-4">

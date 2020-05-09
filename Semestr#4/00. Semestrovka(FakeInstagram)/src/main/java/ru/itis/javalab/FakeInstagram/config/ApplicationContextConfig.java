@@ -1,6 +1,8 @@
 package ru.itis.javalab.FakeInstagram.config;
 
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
@@ -132,7 +134,7 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setDatabase(Database.POSTGRESQL);
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(driverManagerDataSource());
+        entityManagerFactory.setDataSource(hikariDataSource());
         entityManagerFactory.setPackagesToScan("ru.itis.javalab.FakeInstagram.model");
         entityManagerFactory.setJpaVendorAdapter(hibernateJpaVendorAdapter);
         entityManagerFactory.setJpaProperties(additionalProperties());
@@ -154,6 +156,21 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL95Dialect");
         properties.setProperty("hibernate.show_sql", "true");
         return properties;
+    }
+
+    @Bean
+    public DataSource hikariDataSource() {
+        return new HikariDataSource(hikariConfig());
+    }
+
+    @Bean
+    public HikariConfig hikariConfig() {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(environment.getProperty("db.url"));
+        config.setUsername(environment.getProperty("db.user"));
+        config.setPassword(environment.getProperty("db.password"));
+        config.setDriverClassName(Objects.requireNonNull(environment.getProperty("db.driver")));
+        return config;
     }
 
     @Bean

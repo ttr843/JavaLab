@@ -6,7 +6,8 @@ import ru.itis.javalab.FakeInstagram.dto.UserDto;
 import ru.itis.javalab.FakeInstagram.model.User;
 
 public interface ProfileService {
-    void editProfile(UserDto userDto, MultipartFile multipartFile, User user);
+    void editProfile(UserDto userDto,User user);
     void subscribe(SubDto subDto,User user);
     void deleteSub(SubDto subDto,User user);
+    void updatePhotoAvatar(MultipartFile multipartFile,User user);
 }

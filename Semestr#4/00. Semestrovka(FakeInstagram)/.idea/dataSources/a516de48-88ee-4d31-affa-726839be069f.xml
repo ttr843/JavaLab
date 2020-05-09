@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.16">
     <root id="1">
       <ServerVersion>11.5</ServerVersion>
-      <StartupTime>1588153223</StartupTime>
+      <StartupTime>1588972229</StartupTime>
     </root>
     <database id="2" parent="1" name="ArtNet">
       <ObjectId>16444</ObjectId>
@@ -19,12 +19,12 @@
     <database id="4" parent="1" name="FakeInstagram">
       <ObjectId>73937</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158597</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158630</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|73938|73940|1
+sequence|table|82132|82129|1
 sequence|table|73950|73952|1
 sequence|table|73962|73964|1
-sequence|table|82132|82129|1
 </Relations>
     </database>
     <database id="5" parent="1" name="Javalabhomework">
@@ -105,7 +105,7 @@ sequence|table|82132|82129|1
       <Comment>standard public schema</Comment>
       <StateNumber>360</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2158598</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2158631</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="24" parent="4" name="btree">

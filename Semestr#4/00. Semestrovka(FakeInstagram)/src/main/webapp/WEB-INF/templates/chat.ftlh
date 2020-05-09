@@ -1,6 +1,8 @@
 <#include "base.ftlh"/>
 <#macro head>
     <meta charset="UTF-8">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -86,13 +88,18 @@
                 text: text,
                 userId: pageId
             };
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
 
             $.ajax({
                 url: "/messages",
                 method: "POST",
                 data: JSON.stringify(body),
                 contentType: "application/json",
-                dataType: "json",
+                dataType: "json"
+                , beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
                 complete: function () {
                     if (text === 'New user: ${user.getName()} ${user.getSurname()}') {
                         receiveMessage(pageId)
@@ -103,13 +110,18 @@
     </script>
     <script>
         function receiveMessage(pageId) {
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
             $.ajax({
                 url: "/messages?pageId=" + pageId,
                 method: "GET",
                 dataType: "json",
                 contentType: "application/json",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
                 success: function (response) {
-                    response.forEach(function (element,index) {
+                    response.forEach(function (element, index) {
                         $('#messages').first().after('<li>' + 'userId:' + element['pageId'] + ' <b>'
                             + element['text'] + '</b></li>');
                     })
@@ -124,7 +136,8 @@
 <div>
     <input id="message" placeholder="Write message...">
     <button onclick="sendMessage('${pageId}',
-            $('#message').val())">send</button>
+            $('#message').val())">send
+    </button>
 </div>
 <div>
     <ul id="messages">

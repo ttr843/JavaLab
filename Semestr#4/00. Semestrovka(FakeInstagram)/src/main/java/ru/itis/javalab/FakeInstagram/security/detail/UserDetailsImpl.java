@@ -56,4 +56,8 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return user.getState().equals(State.CONFIRMED);
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

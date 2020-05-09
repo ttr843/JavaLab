@@ -4,6 +4,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -90,6 +92,7 @@
                         </div>
                         <p></p>
                         <form action="/deleteSub" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                             <input type="hidden" value="${sub.getId()}" name="subId">
                             <button type="submit" class="btn btn-outline-dark mb-2">Unsubscribe</button>
                         </form>

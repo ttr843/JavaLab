@@ -3,6 +3,7 @@ package ru.itis.javalab.FakeInstagram.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,12 +15,14 @@ import ru.itis.javalab.FakeInstagram.dto.SubDto;
 import ru.itis.javalab.FakeInstagram.dto.UserDto;
 import ru.itis.javalab.FakeInstagram.model.Post;
 import ru.itis.javalab.FakeInstagram.model.User;
+import ru.itis.javalab.FakeInstagram.repository.interfaces.UserRepository;
 import ru.itis.javalab.FakeInstagram.security.detail.UserDetailsImpl;
 import ru.itis.javalab.FakeInstagram.service.interfaces.PostService;
 import ru.itis.javalab.FakeInstagram.service.interfaces.ProfileService;
 import ru.itis.javalab.FakeInstagram.service.interfaces.SearchService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Profile("mvc")
@@ -52,12 +55,18 @@ public class ProfileController {
         return "editProfile";
     }
 
-    @PostMapping(value = "/editProfile", consumes = "multipart/form-data")
-    public String editProfile(UserDto userDto, @RequestParam("file") MultipartFile multipartFile, Authentication
+    @PostMapping(value = "/editProfile" )
+    public String editProfile(UserDto userDto, Authentication
             authentication) {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
-        profileService.editProfile(userDto, multipartFile, user);
+        profileService.editProfile(userDto,user);
+        User updatedUser = new User();
+        Optional<User> optionalUser = userRepository.findById(user.getId());
+        if (optionalUser.isPresent()) {
+            updatedUser = optionalUser.get();
+        }
+        ((UserDetailsImpl) authentication.getPrincipal()).setUser(updatedUser);
         return "redirect:/profile";
     }
 
@@ -125,5 +134,22 @@ public class ProfileController {
         User user = userDetails.getUser();
         profileService.deleteSub(subDto,user);
         return "redirect:/subscriptions";
+    }
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @PostMapping(value = "/addPhotoToAvatar", consumes = "multipart/form-data")
+    public String deleteSub(@RequestParam("file") MultipartFile multipartFile, Authentication authentication){
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        User user = userDetails.getUser();
+        profileService.updatePhotoAvatar(multipartFile,user);
+        User updatedUser = new User();
+        Optional<User> optionalUser = userRepository.findById(user.getId());
+        if (optionalUser.isPresent()) {
+            updatedUser = optionalUser.get();
+        }
+        ((UserDetailsImpl) authentication.getPrincipal()).setUser(updatedUser);
+        return "redirect:/profile";
     }
 }

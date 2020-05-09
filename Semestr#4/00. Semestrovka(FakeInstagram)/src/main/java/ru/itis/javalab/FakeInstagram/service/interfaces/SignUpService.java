@@ -6,5 +6,5 @@ import ru.itis.javalab.FakeInstagram.dto.UserDto;
 public interface SignUpService {
     UserDto login(UserDto userDto);
 
-    UserDto signUp(UserDto userDto, MultipartFile multipartFile);
+    UserDto signUp(UserDto userDto);
 }

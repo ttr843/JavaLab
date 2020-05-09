@@ -19,4 +19,6 @@ public interface UserRepository extends CrudRepository<Long, User> {
     void updateProfileData(User user);
 
     List<User> findAll();
+
+    void updateProfileAvatar(String path,long userId);
 }
