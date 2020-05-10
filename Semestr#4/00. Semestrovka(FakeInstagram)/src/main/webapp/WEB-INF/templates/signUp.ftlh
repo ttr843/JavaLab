@@ -1,4 +1,5 @@
 <!doctype html>
+<#import "spring.ftl" as spring />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,31 +48,35 @@
         </div>
         <div class="col">
             <h2>Registration</h2>
+            <@spring.bind "profileForm"/>
             <form action="/signUp" method="POST" >
                 <div class="form-group">
                     <label for="name">name</label>
-                    <input type="text" id="name" name="name" placeholder="write name..."  class="form-control" >
+                    <br>
+                    <@spring.formInput "profileForm.name"/>
+                    <@spring.showErrors "   <br>"/>
+                    <br><br>
                 </div>
                 <div class="form-group">
                     <label for="surname">surname</label>
-                    <input type="text"  id="surname" name="surname" placeholder="write surname..." class="form-control" >
+                    <br>
+                    <@spring.formInput "profileForm.surname"/>
+                    <@spring.showErrors "<br>"/>
+                    <br><br>
                 </div>
                 <div class="form-group">
                     <label for="email">email</label>
-                    <input type="text" id="email" name="email" placeholder="write email..." class="form-control">
+                    <br>
+                    <@spring.formInput "profileForm.email"/>
+                    <@spring.showErrors "<br>"/>
+                    <br><br>
                 </div>
                 <div class="form-group">
                     <label for="password">password</label>
-                    <input type="password" id="password" name="password" placeholder="write password..." class="form-control">
+                    <br>
+                    <@spring.formInput "profileForm.password"/>
+                    <@spring.showErrors "<br>","error"/>
                 </div>
-                <div class="form-group">
-                    <label for="password-repeat">repeat password</label>
-                    <input type="password" class="form-control" id="password-repeat">
-                </div>
-<#--                <div class="form-group">-->
-<#--                    <label for="photo">photo</label>-->
-<#--                    <input type="file" class="form-control-file" id="photo" name="file">-->
-<#--                </div>-->
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="btns-wrapper">
                     <button type="submit" class="btn btn-dark">sign up</button>

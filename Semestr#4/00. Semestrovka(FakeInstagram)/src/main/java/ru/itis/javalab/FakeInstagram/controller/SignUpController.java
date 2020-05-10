@@ -9,7 +9,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.itis.javalab.FakeInstagram.dto.UserDto;
+import ru.itis.javalab.FakeInstagram.form.ProfileForm;
+import ru.itis.javalab.FakeInstagram.model.User;
 import ru.itis.javalab.FakeInstagram.service.interfaces.SignUpService;
+
+import javax.validation.Valid;
 
 @Controller
 @Profile("mvc")
@@ -25,15 +29,28 @@ public class SignUpController {
         if(authentication != null) {
             return "redirect:/profile";
         }else{
-            model.addAttribute("userDto",new UserDto());
+            model.addAttribute("profileForm", new ProfileForm());
             return "signUp";
         }
     }
 
 
     @PostMapping(value = "/signUp")
-    public String signUp(UserDto userDto, BindingResult bindingResult) {
-        signUpService.signUp(userDto);
-        return "to_confirm";
+    public String signUp(@Valid @ModelAttribute("profileForm")ProfileForm form, BindingResult bindingResult, Model model) {
+        System.out.println(form);
+        System.out.println(bindingResult.getAllErrors());
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("profileForm", form);
+            return "signUp";
+        }else {
+            UserDto userDto = UserDto.builder()
+                    .name(form.getName())
+                    .surname(form.getSurname())
+                    .email(form.getEmail())
+                    .password(form.getPassword())
+                    .build();
+            signUpService.signUp(userDto);
+            return "to_confirm";
+        }
     }
 }

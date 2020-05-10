@@ -2,6 +2,7 @@ package ru.itis.javalab.FakeInstagram.model;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-public class User {
+public class User implements Serializable {
     private Long id;
 
     private String name;

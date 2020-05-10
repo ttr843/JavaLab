@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Semestrovka(FakeInstagram)" />
+        <module name="FakeInstagram" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="FakeInstagram" target="8" />
       <module name="Semestrovka(FakeInstagram)" target="8" />
     </bytecodeTargetLevel>
   </component>

@@ -55,6 +55,11 @@
                     <input type="password" id="password" name="password" placeholder="write password.."
                            class="form-control">
                 </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="remember-me">Remember me
+                    </label>
+                </div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="btns-wrapper">
                     <button type="submit" class="btn btn-dark">Sign in</button>

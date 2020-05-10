@@ -66,7 +66,7 @@ public class PostController {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user = userDetails.getUser();
         postService.saveComment(commentDto, user);
-        return "redirect:/";
+        return "redirect:/post/" + commentDto.getIdPost();
     }
 
     @RequestMapping(value = "/addToFavorites/{post-id:.+}", method = RequestMethod.POST)

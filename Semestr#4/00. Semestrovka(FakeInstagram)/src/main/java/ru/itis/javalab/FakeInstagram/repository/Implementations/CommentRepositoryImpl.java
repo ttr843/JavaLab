@@ -11,16 +11,19 @@ import ru.itis.javalab.FakeInstagram.repository.interfaces.CommentRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 
 @Repository
 public class CommentRepositoryImpl implements CommentRepository {
     private static final String SQL_FIND_BY_POST_ID = "SELECT * FROM comments where idPost = ?";
+    private static final String SQL_SAVE = "INSERT INTO comments(publicatorname,idpost,likeofcomment,text,date) VALUES(?,?,?,?,?)";
 
     private RowMapper<Comment> commentRowMapper = (row,rowNumber) ->
             Comment.builder()
             .id(row.getLong("id"))
-            .namePublicator(row.getString("namePublicator"))
+            .namePublicator(row.getString("publicatorname"))
             .idPost(row.getLong("idPost"))
             .date(row.getString("date"))
             .text(row.getString("text"))
@@ -38,6 +41,8 @@ public class CommentRepositoryImpl implements CommentRepository {
         entityManager.persist(entity);
     }
 
+
+
     @Override
     public List<Comment> findAllCommentsOfPost(long id) {
         try {
@@ -45,5 +50,20 @@ public class CommentRepositoryImpl implements CommentRepository {
         } catch (EmptyResultDataAccessException e) {
             throw new EmptyResultDataAccessException(0);
         }
+    }
+
+    @Override
+    public void saveWithJdbcTemplate(Comment comment) {
+        jdbcTemplate.update(connection -> {
+            PreparedStatement statement = connection
+                    .prepareStatement(SQL_SAVE,
+                            Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, comment.getNamePublicator());
+            statement.setLong(2, comment.getIdPost());
+            statement.setLong(3, 0 );
+            statement.setString(4, comment.getText());
+            statement.setString(5, comment.getDate());
+            return statement;
+        });
     }
 }

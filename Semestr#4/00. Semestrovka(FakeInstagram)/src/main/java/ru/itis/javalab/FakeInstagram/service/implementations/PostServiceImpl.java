@@ -57,7 +57,7 @@ public class PostServiceImpl implements PostService {
                 .date(date.toString())
                 .text(commentDto.getText())
                 .build();
-        commentRepository.save(comment);
+        commentRepository.saveWithJdbcTemplate(comment);
     }
 
     @Override
