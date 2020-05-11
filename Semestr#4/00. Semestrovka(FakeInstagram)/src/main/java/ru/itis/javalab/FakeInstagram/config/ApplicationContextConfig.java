@@ -1,11 +1,10 @@
 package ru.itis.javalab.FakeInstagram.config;
 
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -44,6 +43,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(basePackages = "ru.itis.javalab.FakeInstagram")
 @EnableSwagger2
+@EnableJpaRepositories(
+        basePackages = "ru.itis.javalab.FakeInstagram")
 public class ApplicationContextConfig implements WebMvcConfigurer {
 
     private Environment environment;
@@ -131,19 +132,19 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         return multipartResolver;
     }
 
-    @Bean
+    @Bean(name = "entityManager")
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setDatabase(Database.POSTGRESQL);
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(hikariDataSource());
+        entityManagerFactory.setDataSource(driverManagerDataSource());
         entityManagerFactory.setPackagesToScan("ru.itis.javalab.FakeInstagram.model");
         entityManagerFactory.setJpaVendorAdapter(hibernateJpaVendorAdapter);
         entityManagerFactory.setJpaProperties(additionalProperties());
         return entityManagerFactory;
     }
 
-    @Bean
+    @Bean(name = "transactionManager")
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
@@ -160,20 +161,7 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         return properties;
     }
 
-    @Bean
-    public DataSource hikariDataSource() {
-        return new HikariDataSource(hikariConfig());
-    }
 
-    @Bean
-    public HikariConfig hikariConfig() {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(environment.getProperty("db.url"));
-        config.setUsername(environment.getProperty("db.user"));
-        config.setPassword(environment.getProperty("db.password"));
-        config.setDriverClassName(Objects.requireNonNull(environment.getProperty("db.driver")));
-        return config;
-    }
 
     @Bean
     public Docket api() {

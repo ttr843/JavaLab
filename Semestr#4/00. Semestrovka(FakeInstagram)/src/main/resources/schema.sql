@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS SPRING_SESSION (
                                               MAX_INACTIVE_INTERVAL INT NOT NULL,
                                               EXPIRY_TIME BIGINT NOT NULL,
                                               PRINCIPAL_NAME VARCHAR(100),
+                                              session_bytes bytea,
                                               CONSTRAINT SPRING_SESSION_PK PRIMARY KEY (PRIMARY_ID)
 );
 CREATE UNIQUE INDEX IF NOT EXISTS SPRING_SESSION_IX1 ON SPRING_SESSION (SESSION_ID);
