@@ -1,0 +1,10 @@
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (73940, 73947, 'public', 'users', 'user_pk', 2, 212);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (73952, 73957, 'public', 'comments', 'comments_pk', 2, 36);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (73964, 73969, 'public', 'posts', 'posts_pk', 2, 187);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98981, 98987, 'public', 'spring_session', 'spring_session_pk', 1, 4);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98981, 98989, 'public', 'spring_session', 'spring_session_ix1', 1, 4);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98981, 98990, 'public', 'spring_session', 'spring_session_ix2', 1, 4);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98981, 98991, 'public', 'spring_session', 'spring_session_ix3', 1, 4);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98992, 98998, 'public', 'spring_session_attributes', 'spring_session_attributes_pk', 0, 0);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (99063, 99070, 'public', 'comment', 'comment_pkey', 0, 0);
+INSERT INTO pg_catalog.pg_statio_user_indexes (relid, indexrelid, schemaname, relname, indexrelname, idx_blks_read, idx_blks_hit) VALUES (98716, 98719, 'public', 'persistent_logins', 'persistent_logins_pkey', 2, 24);

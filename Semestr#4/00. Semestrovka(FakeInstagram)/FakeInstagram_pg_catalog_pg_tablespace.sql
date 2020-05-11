@@ -1,0 +1,2 @@
+INSERT INTO pg_catalog.pg_tablespace (spcname, spcowner, spcacl, spcoptions) VALUES ('pg_default', 10, null, null);
+INSERT INTO pg_catalog.pg_tablespace (spcname, spcowner, spcacl, spcoptions) VALUES ('pg_global', 10, null, null);

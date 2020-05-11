@@ -1,0 +1,1 @@
+INSERT INTO pg_catalog.pg_user (usename, usesysid, usecreatedb, usesuper, userepl, usebypassrls, passwd, valuntil, useconfig) VALUES ('postgres', 10, true, true, true, true, '********', null, null);

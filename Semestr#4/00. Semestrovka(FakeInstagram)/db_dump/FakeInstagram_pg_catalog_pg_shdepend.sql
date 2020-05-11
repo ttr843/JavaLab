@@ -1,0 +1,9 @@
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 3373, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 3374, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 3375, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 3377, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 4569, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 4570, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 4571, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 4200, 'p');
+INSERT INTO pg_catalog.pg_shdepend (dbid, classid, objid, objsubid, refclassid, refobjid, deptype) VALUES (0, 0, 0, 0, 1260, 10, 'p');

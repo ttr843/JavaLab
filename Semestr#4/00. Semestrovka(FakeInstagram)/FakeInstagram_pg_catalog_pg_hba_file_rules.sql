@@ -1,0 +1,4 @@
+INSERT INTO pg_catalog.pg_hba_file_rules (line_number, type, database, user_name, address, netmask, auth_method, options, error) VALUES (80, 'host', '{all}', '{all}', '127.0.0.1', '255.255.255.255', 'md5', null, null);
+INSERT INTO pg_catalog.pg_hba_file_rules (line_number, type, database, user_name, address, netmask, auth_method, options, error) VALUES (82, 'host', '{all}', '{all}', '::1', 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff', 'md5', null, null);
+INSERT INTO pg_catalog.pg_hba_file_rules (line_number, type, database, user_name, address, netmask, auth_method, options, error) VALUES (85, 'host', '{replication}', '{all}', '127.0.0.1', '255.255.255.255', 'md5', null, null);
+INSERT INTO pg_catalog.pg_hba_file_rules (line_number, type, database, user_name, address, netmask, auth_method, options, error) VALUES (86, 'host', '{replication}', '{all}', '::1', 'ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff', 'md5', null, null);

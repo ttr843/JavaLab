@@ -1,0 +1,16 @@
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('simple', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('danish', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('dutch', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('english', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('finnish', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('french', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('german', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('hungarian', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('italian', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('norwegian', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('portuguese', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('romanian', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('russian', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('spanish', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('swedish', 11, 10, 3722);
+INSERT INTO pg_catalog.pg_ts_config (cfgname, cfgnamespace, cfgowner, cfgparser) VALUES ('turkish', 11, 10, 3722);

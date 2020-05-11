@@ -1,0 +1,4 @@
+INSERT INTO pg_catalog.pg_language (lanname, lanowner, lanispl, lanpltrusted, lanplcallfoid, laninline, lanvalidator, lanacl) VALUES ('internal', 10, false, false, 0, 0, 2246, null);
+INSERT INTO pg_catalog.pg_language (lanname, lanowner, lanispl, lanpltrusted, lanplcallfoid, laninline, lanvalidator, lanacl) VALUES ('c', 10, false, false, 0, 0, 2247, null);
+INSERT INTO pg_catalog.pg_language (lanname, lanowner, lanispl, lanpltrusted, lanplcallfoid, laninline, lanvalidator, lanacl) VALUES ('sql', 10, false, true, 0, 0, 2248, null);
+INSERT INTO pg_catalog.pg_language (lanname, lanowner, lanispl, lanpltrusted, lanplcallfoid, laninline, lanvalidator, lanacl) VALUES ('plpgsql', 10, true, true, 12999, 13000, 13001, null);

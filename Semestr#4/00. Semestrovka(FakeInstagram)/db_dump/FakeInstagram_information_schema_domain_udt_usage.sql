@@ -1,0 +1,5 @@
+INSERT INTO information_schema.domain_udt_usage (udt_catalog, udt_schema, udt_name, domain_catalog, domain_schema, domain_name) VALUES ('FakeInstagram', 'pg_catalog', 'int4', 'FakeInstagram', 'information_schema', 'cardinal_number');
+INSERT INTO information_schema.domain_udt_usage (udt_catalog, udt_schema, udt_name, domain_catalog, domain_schema, domain_name) VALUES ('FakeInstagram', 'pg_catalog', 'varchar', 'FakeInstagram', 'information_schema', 'yes_or_no');
+INSERT INTO information_schema.domain_udt_usage (udt_catalog, udt_schema, udt_name, domain_catalog, domain_schema, domain_name) VALUES ('FakeInstagram', 'pg_catalog', 'varchar', 'FakeInstagram', 'information_schema', 'sql_identifier');
+INSERT INTO information_schema.domain_udt_usage (udt_catalog, udt_schema, udt_name, domain_catalog, domain_schema, domain_name) VALUES ('FakeInstagram', 'pg_catalog', 'varchar', 'FakeInstagram', 'information_schema', 'character_data');
+INSERT INTO information_schema.domain_udt_usage (udt_catalog, udt_schema, udt_name, domain_catalog, domain_schema, domain_name) VALUES ('FakeInstagram', 'pg_catalog', 'timestamptz', 'FakeInstagram', 'information_schema', 'time_stamp');
