@@ -1,5 +1,0 @@
-INSERT INTO pg_catalog.pg_sequence (seqrelid, seqtypid, seqstart, seqincrement, seqmax, seqmin, seqcache, seqcycle) VALUES (73938, 23, 1, 1, 2147483647, 1, 1, false);
-INSERT INTO pg_catalog.pg_sequence (seqrelid, seqtypid, seqstart, seqincrement, seqmax, seqmin, seqcache, seqcycle) VALUES (73950, 23, 1, 1, 2147483647, 1, 1, false);
-INSERT INTO pg_catalog.pg_sequence (seqrelid, seqtypid, seqstart, seqincrement, seqmax, seqmin, seqcache, seqcycle) VALUES (73962, 23, 1, 1, 2147483647, 1, 1, false);
-INSERT INTO pg_catalog.pg_sequence (seqrelid, seqtypid, seqstart, seqincrement, seqmax, seqmin, seqcache, seqcycle) VALUES (82132, 23, 1, 1, 2147483647, 1, 1, false);
-INSERT INTO pg_catalog.pg_sequence (seqrelid, seqtypid, seqstart, seqincrement, seqmax, seqmin, seqcache, seqcycle) VALUES (99061, 20, 1, 1, 9223372036854775807, 1, 1, false);
