@@ -8,21 +8,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
-public class ProfileForm {
-    @NotNull(message = "name is empty")
-    @NotBlank(message = "empty")
+public class profileForm {
     private String name;
 
-    @NotNull(message = "surname is empty")
-    @NotBlank(message = "empty")
+
     private String surname;
 
-    @Email(message = "incorrect email")
-    @NotBlank(message = "empty")
+    @Email
+    @NotNull
     private String email;
 
-    @NotNull(message = "password is empty")
-    @NotBlank(message = "empty")
     private String password;
 
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface CommentRepository extends CrudRepository<Long, Comment> {
     List<Comment> findAllCommentsOfPost(long id);
-    void saveWithJdbcTemplate(Comment comment);
+
 }

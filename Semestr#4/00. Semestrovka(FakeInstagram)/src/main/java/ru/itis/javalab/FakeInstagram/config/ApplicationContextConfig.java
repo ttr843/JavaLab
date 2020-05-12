@@ -34,6 +34,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import javax.persistence.EntityManagerFactory;
 import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -65,15 +66,24 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
     public ViewResolver viewResolver() {
         FreeMarkerViewResolver viewResolver = new FreeMarkerViewResolver();
         viewResolver.setCache(true);
+        viewResolver.setContentType("text/html; charset=utf-8");
         viewResolver.setPrefix("");
         viewResolver.setSuffix(".ftlh");
         return viewResolver;
     }
 
     @Bean
+    public freemarker.template.Configuration configuration() {
+        freemarker.template.Configuration configuration = freemarkerConfig().getConfiguration();
+        configuration.setEncoding(new Locale("ru"),"utf-8");
+        return configuration;
+    }
+
+    @Bean
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/templates");
+        freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         return freeMarkerConfigurer;
     }
 

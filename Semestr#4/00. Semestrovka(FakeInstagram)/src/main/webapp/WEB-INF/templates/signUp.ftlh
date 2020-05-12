@@ -68,7 +68,7 @@
                     <label for="email">email</label>
                     <br>
                     <@spring.formInput "profileForm.email"/>
-                    <@spring.showErrors "<br>"/>
+                    <@spring.showErrors "<br>","error"/>
                     <br><br>
                 </div>
                 <div class="form-group">

@@ -7,10 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import ru.itis.javalab.FakeInstagram.dto.UserDto;
-import ru.itis.javalab.FakeInstagram.form.ProfileForm;
-import ru.itis.javalab.FakeInstagram.model.User;
+import ru.itis.javalab.FakeInstagram.form.profileForm;
 import ru.itis.javalab.FakeInstagram.service.interfaces.SignUpService;
 
 import javax.validation.Valid;
@@ -29,14 +27,14 @@ public class SignUpController {
         if(authentication != null) {
             return "redirect:/profile";
         }else{
-            model.addAttribute("profileForm", new ProfileForm());
+            model.addAttribute("profileForm", new profileForm());
             return "signUp";
         }
     }
 
 
     @PostMapping(value = "/signUp")
-    public String signUp(@Valid @ModelAttribute("profileForm")ProfileForm form, BindingResult bindingResult, Model model) {
+    public String signUp(@Valid @ModelAttribute("profileForm") profileForm form, BindingResult bindingResult, Model model) {
         System.out.println(form);
         System.out.println(bindingResult.getAllErrors());
         if(bindingResult.hasErrors()) {
