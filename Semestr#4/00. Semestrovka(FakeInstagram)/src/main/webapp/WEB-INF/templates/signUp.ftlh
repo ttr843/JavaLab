@@ -47,42 +47,50 @@
             <img src="/img/masks.svg" alt="Masks" class="registration-img img-fluid">
         </div>
         <div class="col">
-            <h2>Registration</h2>
+            <h1><@spring.message 'signUp.page.mainWord'/></h1>
             <@spring.bind "profileForm"/>
             <form action="/signUp" method="POST" >
                 <div class="form-group">
-                    <label for="name">name</label>
+                    <label for="name">
+                        <@spring.message 'signUp.page.name'/></label>
                     <br>
                     <@spring.formInput "profileForm.name"/>
                     <@spring.showErrors "   <br>"/>
                     <br><br>
                 </div>
                 <div class="form-group">
-                    <label for="surname">surname</label>
+                    <label for="surname"><@spring.message 'signUp.page.surname'/></label>
                     <br>
                     <@spring.formInput "profileForm.surname"/>
                     <@spring.showErrors "<br>"/>
                     <br><br>
                 </div>
                 <div class="form-group">
-                    <label for="email">email</label>
+                    <label for="email"><@spring.message 'signUp.page.email'/></label>
                     <br>
                     <@spring.formInput "profileForm.email"/>
                     <@spring.showErrors "<br>","error"/>
                     <br><br>
                 </div>
                 <div class="form-group">
-                    <label for="password">password</label>
+                    <label for="password"><@spring.message 'signUp.page.password'/></label>
                     <br>
                     <@spring.formInput "profileForm.password"/>
                     <@spring.showErrors "<br>","error"/>
                 </div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="btns-wrapper">
-                    <button type="submit" class="btn btn-dark">sign up</button>
-                    <a class="text-secondary" href="/login">Already have an account?sign in</a>
+                    <button type="submit" class="btn btn-dark"><@spring.message 'signUp.page.buttonSubmit'/></button>
+                    <a class="text-secondary" href="/login"><@spring.message 'signUp.page.linkToLogin'/></a>
                 </div>
             </form>
+            <div>
+                <br>
+                <h6><@spring.message 'signUp.page.changeLanguage'/></h6>
+                <a href="/signUp?lang=ru"><@spring.message 'signUp.page.langRus'/></a>
+                <br>
+                <a href="/signUp?lang=en"><@spring.message 'signUp.page.langEng'/></a>
+            </div>
         </div>
     </div>
 </div>

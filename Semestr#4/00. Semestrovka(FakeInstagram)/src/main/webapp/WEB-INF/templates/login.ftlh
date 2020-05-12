@@ -1,4 +1,5 @@
 <!doctype html>
+<#import "spring.ftl" as spring />
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,28 +45,35 @@
             <img src="/img/masks.svg" alt="Masks" class="login-img img-fluid">
         </div>
         <div class="col">
-            <h2>Sign in</h2>
+            <h2><@spring.message 'signIn.page.mainWord'/></h2>
             <form action="/login" method="post">
                 <div class="form-group">
-                    <label for="email">email</label>
+                    <label for="email"><@spring.message 'signIn.page.email'/></label>
                     <input type="text" id="email" name="email" placeholder="write email.." class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="password">password</label>
+                    <label for="password"><@spring.message 'signIn.page.password'/></label>
                     <input type="password" id="password" name="password" placeholder="write password.."
                            class="form-control">
                 </div>
                 <div class="form-group">
                     <label>
-                        <input type="checkbox" name="remember-me">Remember me
+                        <input type="checkbox" name="remember-me"><@spring.message 'signIn.page.rememberMe'/>
                     </label>
                 </div>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                 <div class="btns-wrapper">
-                    <button type="submit" class="btn btn-dark">Sign in</button>
-                    <a class="text-secondary" href="/signUp">Don`t have an account? Go sign up!</a>
+                    <button type="submit" class="btn btn-dark"><@spring.message 'signIn.page.buttonSignIn'/></button>
+                    <a class="text-secondary" href="/signUp"><@spring.message 'signIn.page.linkToSignUp'/></a>
                 </div>
             </form>
+            <div>
+                <br>
+                <h6><@spring.message 'signIn.page.changeLanguage'/></h6>
+                <a href="/login?lang=ru"><@spring.message 'signIn.page.langRus'/></a>
+                <br>
+                <a href="/login?lang=en"><@spring.message 'signIn.page.langEng'/></a>
+            </div>
         </div>
     </div>
 </div>

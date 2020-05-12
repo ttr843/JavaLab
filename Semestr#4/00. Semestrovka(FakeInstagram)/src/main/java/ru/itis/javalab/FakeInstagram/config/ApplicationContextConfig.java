@@ -2,7 +2,9 @@ package ru.itis.javalab.FakeInstagram.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.*;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,11 +20,19 @@ import org.springframework.security.web.authentication.rememberme.JdbcTokenRepos
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.DefaultMessageCodesResolver;
+import org.springframework.validation.MessageCodesResolver;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import springfox.documentation.builders.PathSelectors;
@@ -50,6 +60,25 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
 
     private Environment environment;
 
+
+    @Autowired
+    public ApplicationContextConfig(Environment environment) {
+        this.environment = environment;
+    }
+
+    @Override
+    public Validator getValidator() {
+        return getLocaleValidator();
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean getLocaleValidator() {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }
+
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**").addResourceLocations("/static/img/");
@@ -57,10 +86,6 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/static/uploads/**").addResourceLocations("/static/uploads");
     }
 
-    @Autowired
-    public ApplicationContextConfig(Environment environment) {
-        this.environment = environment;
-    }
 
     @Bean
     public ViewResolver viewResolver() {
@@ -75,7 +100,7 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
     @Bean
     public freemarker.template.Configuration configuration() {
         freemarker.template.Configuration configuration = freemarkerConfig().getConfiguration();
-        configuration.setEncoding(new Locale("ru"),"utf-8");
+        configuration.setEncoding(new Locale("ru"), "utf-8");
         return configuration;
     }
 
@@ -88,7 +113,7 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
     }
 
     @Bean(name = "passwordEncoder")
-    @Profile({"mvc","rest"})
+    @Profile({"mvc", "rest"})
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -155,12 +180,11 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
     }
 
     @Bean(name = "transactionManager")
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
+    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
     }
-
 
 
     private Properties additionalProperties() {
@@ -170,7 +194,6 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         properties.setProperty("hibernate.show_sql", "true");
         return properties;
     }
-
 
 
     @Bean
@@ -188,4 +211,44 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         jdbcTokenRepository.setDataSource(driverManagerDataSource());
         return jdbcTokenRepository;
     }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
+    }
+
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+        localeChangeInterceptor.setParamName("lang");
+        return localeChangeInterceptor;
+    }
+
+    // этот бин определяет текущую локализацию исходя из кук
+    @Bean
+    public LocaleResolver localeResolver() {
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        cookieLocaleResolver.setCookieName("localeInfo");
+        cookieLocaleResolver.setCookieMaxAge(60 * 60 * 24 * 365);
+        return cookieLocaleResolver;
+    }
+
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages/messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+
+    @Override
+    public MessageCodesResolver getMessageCodesResolver() {
+        DefaultMessageCodesResolver codesResolver = new DefaultMessageCodesResolver();
+        codesResolver.setMessageCodeFormatter(DefaultMessageCodesResolver.Format.POSTFIX_ERROR_CODE);
+        return codesResolver;
+    }
+
+
 }
