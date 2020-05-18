@@ -27,7 +27,7 @@ public class EmailSendingAspect {
     @Autowired
     private FreeMarkerConfigurer freeMarkerConfigurer;
 
-    @Autowired
+      @Autowired
     private EmailService emailService;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -42,7 +42,7 @@ public class EmailSendingAspect {
         try {
             Map model = new HashMap<>();
             Template template = freeMarkerConfigurer.getConfiguration().getTemplate("mail.ftl");
-            String link = "http://localhost:8080/files/" + upload.getGeneratedName() + "." + upload.getType();
+            String link = "http://localhost/files/" + upload.getGeneratedName() + "." + upload.getType();
             model.put("usermail", jp.getArgs()[1].toString());
             model.put("link", link);
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(template, model);

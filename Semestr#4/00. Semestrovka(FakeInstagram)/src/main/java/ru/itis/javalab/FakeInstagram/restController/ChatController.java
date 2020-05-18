@@ -1,4 +1,4 @@
-package ru.itis.javalab.FakeInstagram.controller;
+package ru.itis.javalab.FakeInstagram.restController;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.Authentication;
