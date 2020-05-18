@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.itis</groupId>
-    <artifactId>JavaLabMessageQ</artifactId>
+    <artifactId>messageQueue</artifactId>
     <version>0.1</version>
 
     <dependencies>

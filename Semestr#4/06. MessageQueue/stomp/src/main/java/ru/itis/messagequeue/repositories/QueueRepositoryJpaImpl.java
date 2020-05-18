@@ -17,7 +17,7 @@ public class QueueRepositoryJpaImpl implements QueueRepository {
     @PersistenceContext
     private EntityManager entityManagerFactory;
 
-    //language=HQL
+
     private final static String HQL_FIND_BY_NAME = "SELECT q FROM MyQueue q WHERE q.queueName = ?1";
 
     @Override

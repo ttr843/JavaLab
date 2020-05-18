@@ -18,11 +18,11 @@ public class MessageRepositoryJpaImpl implements MessageRepository {
     @PersistenceContext
     private EntityManager entityManagerFactory;
 
-    //language=HQL
-    private static final String HQL_FIND_ALL = "From MessageEntity message";
 
-    //language=HQL
-    private final static String HQL_FIND_BY_QUEUE = "SELECT m FROM MessageEntity m WHERE m.queue = ?1";
+    private static final String HQL_FIND_ALL = "From Messageentity message";
+
+
+    private final static String HQL_FIND_BY_QUEUE = "SELECT m FROM Messageentity m WHERE m.queue = ?1";
 
     @Override
     public Optional<MessageEntity> find(String id) {
@@ -63,7 +63,6 @@ public class MessageRepositoryJpaImpl implements MessageRepository {
                     .getResultList();
         }
         catch (NoResultException nre){
-            //Ignore this because the logic this is ok!
         }
         return messages;
     }

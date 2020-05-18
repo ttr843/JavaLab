@@ -12,14 +12,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        //указываем, по какому url срабатывает StompBrokerRelay
         registry.enableSimpleBroker("/topic");
         registry.setApplicationDestinationPrefixes("/app");
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        //url, по которому устанавливает соединение WebSocket client
         registry.addEndpoint("/websocket").setAllowedOrigins("*").withSockJS();
     }
 }

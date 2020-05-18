@@ -1,8 +1,9 @@
-POST http://localhost:8080/createQueue
+POST http://localhost:8080/documents_for_generate
 Content-Type: application/json
 
-{
-  "myQueue": "documents_for_generate"
-}
+###
+
+POST http://localhost:8080/accept/documents_for_generate/1
+Content-Type: application/json
 
 ###

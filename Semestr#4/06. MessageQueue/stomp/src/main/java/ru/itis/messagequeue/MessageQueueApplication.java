@@ -17,8 +17,6 @@ public class MessageQueueApplication {
         SpringApplication.run(MessageQueueApplication.class, args);
 
         JlmqConnector connector = new JlmqConnector();
-
-        //consumer подписывается на конкретную очередь
         JlmqConsumer consumer = connector.consumer()
                 .subscribe("documents_for_generate")
                 .onReceive(message -> {
@@ -27,7 +25,7 @@ public class MessageQueueApplication {
 
         JlmqProducer producer = JlmqProducerFactory.getEmailProducer();
         Map<String, Object> map = new HashMap<>();
-        map.put("email", "elanskaya.lina@gmail.com");
+        map.put("email", "empty-12@mail.ru");
         producer.sendTask(map);
     }
 }

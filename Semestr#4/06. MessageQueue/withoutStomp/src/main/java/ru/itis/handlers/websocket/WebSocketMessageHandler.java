@@ -32,7 +32,7 @@ public class WebSocketMessageHandler extends TextWebSocketHandler {
     @Autowired
     private JlmqConsumerService jlmqConsumerService;
 
-    @Autowired
+    @Autowiredч
     private MyQueueService myQueueService;
 
     @Override
@@ -66,7 +66,6 @@ public class WebSocketMessageHandler extends TextWebSocketHandler {
                         .id(UUID.randomUUID().toString())
                         .build();
                 myQueue.getTasks().add(task);
-                        //queueTaskService.addTask(task);
                 }
         } catch (JsonProcessingException e) {
             throw new IllegalArgumentException(e);
