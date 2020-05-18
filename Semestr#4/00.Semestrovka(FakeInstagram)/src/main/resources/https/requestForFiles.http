@@ -1,0 +1,12 @@
+GET  http://localhost/file/init
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+###
+
+GET  http://localhost/file/convert
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+###
+
