@@ -134,6 +134,7 @@ public class ApplicationContextConfig implements WebMvcConfigurer {
         return dataSource;
     }
 
+
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

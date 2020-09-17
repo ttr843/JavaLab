@@ -35,8 +35,6 @@ public class SignUpController {
 
     @PostMapping(value = "/signUp")
     public String signUp(@Valid @ModelAttribute("profileForm") profileForm form, BindingResult bindingResult, Model model) {
-        System.out.println(form);
-        System.out.println(bindingResult.getAllErrors());
         if(bindingResult.hasErrors()) {
             model.addAttribute("profileForm", form);
             return "signUp";
