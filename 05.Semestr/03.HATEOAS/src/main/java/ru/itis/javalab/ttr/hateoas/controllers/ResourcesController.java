@@ -13,12 +13,6 @@ public class ResourcesController {
     @Autowired
     private ResourcesService resourcesService;
 
-    @RequestMapping(value = "/resources/{resource-id}/updateRate" , method = RequestMethod.PUT)
-    public @ResponseBody
-    ResponseEntity<?> updateRate(@PathVariable("resource-id") Long resourceId,
-                                 @RequestParam("rateValue") double rateValue){
-        return ResponseEntity.ok(EntityModel.of(resourcesService.updateRate(resourceId,rateValue)));
-    }
 
     @RequestMapping(value = "/resources/{resource-id}/setTypeUnknown" , method = RequestMethod.PUT)
     public @ResponseBody

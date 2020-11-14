@@ -10,13 +10,6 @@ public class ResourcesServiceImpl implements ResourcesService {
     @Autowired
     private ResourcesRepository resourcesRepository;
 
-    @Override
-    public Resource updateRate(Long resourceId, double rate) {
-        Resource resource = resourcesRepository.findById(resourceId).orElseThrow(IllegalArgumentException::new);
-        resource.updateRate(rate);
-        resourcesRepository.save(resource);
-        return resource;
-    }
 
     @Override
     public Resource setTypeUnknown(Long resourceId) {

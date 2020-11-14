@@ -1,0 +1,31 @@
+= Описание API
+
+== Методы
+
+|===
+|Метод | Назначение
+|PUT
+|Обновить сущность или ее состояние
+|POST
+|Отправить данные
+|GET
+|Получить данные
+|===
+
+=== Установить тип ресурса UNKNOWN
+
+Можно указать тип ресурса как  *UNKNOWN*
+
+.curl
+include::{snippets}\setTypeUnknown\curl-request.adoc[]
+
+.request
+
+include::{snippets}\setTypeUnknown\http-request.adoc[]
+
+.response
+
+include::{snippets}\setTypeUnknown\http-response.adoc[]
+
+.response-fields
+include::{snippets}\setTypeUnknown\response-fields.adoc[]

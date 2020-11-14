@@ -1,0 +1,102 @@
+db.users.insert(
+    {
+        firstname: 'Ruslan',
+        lastname: 'Pashin',
+        age: 20,
+        country: 'Russia',
+        course: 'Java'
+    }
+    )
+db.users.insert(
+    {
+        firstname: 'Roman',
+        lastname: 'Shurkin',
+        age: 20,
+        country: 'Russia',
+        course: 'IOS',
+        rate: 80.8
+    }
+    )
+db.users.insert(
+    {
+        firstname: 'Sergey',
+        lastname: 'Ryzhakov',
+        age: 20,
+        course: 'Android'
+    }
+    )
+db.users.insert(
+    {
+        firstname: 'Ruslan',
+        lastname: 'Shagaliev',
+        age: 20,
+        status: 'student'
+    }
+    )
+db.posts.insert(
+    {
+        title: 'homework rabbitmq',
+        date: '20.10.2020',
+        grade: 5,
+        expired: true,
+        keywords: ['java','java core', 'rabbitmq'],
+        description: 'RabbitMQ homework,learn exchanges',
+        user: ObjectId('5fafba4351bf7d49fcba42f0')
+    }
+    )
+db.posts.insert(
+    {
+        title: 'learn kotlin',
+        date: '20.10.2020',
+        grade: 3,
+        description: 'RabbitMQ homework,learn exchanges',
+        user: ObjectId('5fafba4651bf7d49fcba42f2')
+    }
+    )
+db.posts.insert(
+    {
+        title: 'create bicycle',
+        date: '09.09.2009',
+    }
+    )
+db.posts.insert(
+    {
+        title: 'annotations homework',
+        grade: '5',
+        expired: false,
+        user: ObjectId('5fafba4351bf7d49fcba42f0')
+    }
+    )
+db.teachers.insert(
+    {
+        name: 'Marsel',
+        surname: 'Sidikov',
+        age: 26,
+        status: 'teacher',
+        course: 'Java'
+    }
+    )
+db.teachers.insert(
+    {
+        name: 'Mikhail',
+        surname: 'Abramskiy',
+        status: 'director',
+        course: 'Python'
+    }
+    )
+db.answers.insert(
+    {
+        text: 'good homework.Well done!',
+        date: '20.12.2020',
+        teacher: ObjectId('5fafbeb636691e6794f72ee4'),
+        post: ObjectId('5fafbe0936691e6794f72ede')
+    }
+    )
+db.answers.insert(
+    {
+        text: 'BAD!!!Remake!',
+        date: '20.12.2020',
+        teacher: ObjectId('5fafbeb636691e6794f72ee4'),
+        post: ObjectId('5fafbe0c36691e6794f72ee1')
+    }
+    )

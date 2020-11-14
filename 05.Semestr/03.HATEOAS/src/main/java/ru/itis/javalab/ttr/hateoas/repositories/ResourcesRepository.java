@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
+import ru.itis.javalab.ttr.hateoas.models.Genre;
 import ru.itis.javalab.ttr.hateoas.models.Resource;
 
 import java.util.List;
@@ -17,6 +18,6 @@ public interface ResourcesRepository extends JpaRepository<Resource,Long> {
 
 
     @RestResource(path = "byGenre" , rel = "genre")
-    List<Resource> findAllByGenre(String genre);
+    List<Resource> findAllByGenre(Genre genre);
 
 }
