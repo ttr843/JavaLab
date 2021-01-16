@@ -1,2 +1,2 @@
 # JavaLab
-## Repository for ITIS JAVA homeworks
+## Repository for ITIS JAVA homeworks(Contains a lot of technologies)
